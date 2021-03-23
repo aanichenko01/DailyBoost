@@ -1,0 +1,40 @@
+!!!
+
+%html
+  %head
+    %meta{'charset' => 'utf-8'}
+    %meta{'http-equiv' => 'x-ua-compatible', 'content' => 'ie=edge'}
+
+    %title= t('app_title')
+
+    %meta{'name' => 'description', 'content' => t('app_description')}
+    %meta{'name' => 'viewport', 'content' => 'width=device-width, initial-scale=1'}
+
+    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = javascript_include_tag 'modernizr'
+    = csrf_meta_tags
+
+    -#Imports for bootstrap and jquery validation
+    = javascript_include_tag 'https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js'
+    = javascript_include_tag 'https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js'
+    = javascript_include_tag '//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js'
+  
+  %body
+
+    = render 'shared/header'
+
+    .container-fluid.text-center
+      -#Displays flash messages at top of body
+      - flash.each do |key, value|
+        = content_tag :div, content_tag(:p, value), id: "#{key}" unless value.blank?
+      .row.content
+        -#Adds side navs to make website layout nicer
+        .col-sm-2.sidenav
+        -#Displays main content of each page 
+        .col-sm-8.text-left
+          = yield
+        .col-sm-2.sidenav
+    
+  .container-fluid.text-center 
+    = render 'shared/footer'

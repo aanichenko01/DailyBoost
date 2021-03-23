@@ -1,0 +1,14 @@
+%p
+  %b= t('.workout')
+  = @exercise.workout.name
+%p
+  %b= t('.title')
+  = @exercise.title
+%p
+  %b= t('.sets')
+  = @exercise.sets
+%p
+  %b= t('.reps')
+  = @exercise.reps
+
+= link_to t('.back'), @exercise.workout

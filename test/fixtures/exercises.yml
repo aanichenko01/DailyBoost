@@ -1,0 +1,20 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  workout: one
+  title: MyString
+  category: Abs
+  description: Do a simple plank
+  equipment: None
+  sets: 1
+  reps: 1
+
+
+two:
+  workout: two
+  title: MyString
+  category: Abs
+  description: Do a simple plank
+  equipment: None
+  sets: 1
+  reps: 1

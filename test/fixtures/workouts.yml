@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  date: 2020-11-17
+  name: MyString
+  duration: 100
+  calories: 100
+  user_id: 1
+
+two:
+  date: 2020-11-17
+  name: MyString
+  duration: 100
+  calories: 100
+  user_id: 2

@@ -1,0 +1,76 @@
+/*
+* This is a manifest file that'll be compiled into application.css, which will include all the files
+* listed below.
+*
+* Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+* vendor/assets/stylesheets directory can be referenced here using a relative path.
+*
+* You're free to add application-wide styles to this file and they'll appear at the bottom of the
+* compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+* files in this directory. Styles in this file should be added after the last require_* statement.
+* It is generally better to create a new file per style scope.
+*
+*= require_tree .
+*= require_self
+*/
+
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+/* Default font for entire website */
+$font: Arial, Helvetica, sans-serif;
+$blue: #3a69c0;
+$font_color: #292929;
+
+body {
+  font-family: $font;
+  background-color: white;
+}
+
+h1 {
+  text-transform: uppercase;
+}
+
+/* Styles all table headers the same on the website */
+th{
+  text-transform: uppercase;
+  color: white;
+  background-color: $font_color;
+}
+
+/* Styles all links the same on the website */
+a:link,
+a:visited{
+  color: $blue;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+/* Styles all hovering over links the same on the website */
+a:hover {
+  color: $font_color;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+/* All divs styled the same way */
+.box{
+  color: white;
+}
+
+.box_display{
+  border-radius: 25px;
+  background:$blue;
+  padding: 20px;
+}
+
+/* Remove the navbar's default margin-bottom and rounded borders */ 
+.navbar {
+  margin-bottom: 0;
+  border-radius: 0;
+}
+
+/* Add some padding to footer */
+footer {
+  padding: 30px;
+}

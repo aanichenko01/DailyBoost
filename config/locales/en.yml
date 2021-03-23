@@ -1,0 +1,120 @@
+# Files in the config/locales directory are used for internationalization
+# and are automatically loaded by Rails. If you want to use locales other
+# than English, add the necessary files in this directory.
+#
+# To use the locales, use `I18n.t`:
+#
+#     I18n.t 'hello'
+#
+# In views, this is aliased to just `t`:
+#
+#     <%= t('hello') %>
+#
+# To use a different locale, set it with `I18n.locale`:
+#
+#     I18n.locale = :es
+#
+# This would use the information in config/locales/es.yml.
+#
+# The following keys must be escaped otherwise they will not be retrieved by
+# the default I18n backend:
+#
+# true, false, on, off, yes, no
+#
+# Instead, surround them with single quotes.
+#
+# en:
+#   'true': 'foo'
+#
+# To learn more, please read the Rails Internationalization guide
+# available at http://guides.rubyonrails.org/i18n.html.
+
+en:
+  app_title: DailyBoost
+  app_description: A fitness website
+  units:
+    kg: ' kg'
+    calories: ' calories'
+    minutes: ' minutes'
+    hours: ' hours'
+    date: Date
+  crud:
+    details: Details
+    edit: Edit
+    delete: Delete
+    delete_confirm: Are you sure?
+    save: Save
+  connectors:
+    and: ' and '
+  home:
+    home:
+      welcome: Welcome to DailyBoost
+    contact:
+      title: Contact Us
+      contact_us: Fill in the form below to contact us.
+      name: "Name:"
+      enter_name: Enter your name
+      email: "Email:"
+      enter_email: Enter your email address
+      telephone: "Telephone:"
+      enter_telephone: Enter your telephone number
+      message: "Message:"
+      enter_message: What do you want to say?
+      send: Send
+    request_contact: 
+      no_email: You must provide an email address.
+      email_sent: Email sent, we will be in touch shortly.
+  workouts:
+    form:
+      error: " prohibited this workout from being saved:"
+    new: New Workout
+    edit:
+      title: Editing Workout
+    index:
+      title: Your Workouts
+      name: Workout Type
+      duration: Duration(Mins)
+    show:
+      date: 'Date:'
+      name: 'Workout Type:'
+      duration: 'Duration: '
+      calories: 'Calories:'
+      add: Add Exercise
+    created: 'Workout was successfully created.'
+    updated: 'Workout was successfully updated.'
+    deleted: 'Workout was successfully deleted.'
+  exercises: 
+    form:
+      error: " prohibited this exercise from being saved:"
+    table:
+      exercises: Exercises
+      sets: Sets
+      reps: Reps
+    edit:
+      title: Editing Exercise
+    new:
+      title: New Exercise
+    show:
+      workout: 'Workout:'
+      title: 'Title:'
+      sets: 'Sets:'
+      reps: 'Reps:'
+      back: Back
+    created: 'Exercise was successfully created.'
+    updated: 'Exercise was successfully updated.'
+    deleted: 'Exercise was successfully deleted.'
+  shared: 
+    header:
+      nav_workouts: Workout
+      logout: Logout
+      login: Login
+      sign_up: Sign Up
+    footer:
+      content: Contact Us
+  contact_mailer:
+    contact_email:
+      name: 'Name:'
+      email: 'Email:'
+      telephone: 'Telephone:'
+      thanks: Thanks,
+      message: Could you get in touch with me please?

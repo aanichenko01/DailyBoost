@@ -1,0 +1,27 @@
+%br
+%br
+= form_for @workout do |f|
+  - if @workout.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@workout.errors.count, "error")}" + t('.error')
+      %ul
+        - @workout.errors.full_messages.each do |message|
+          %li= message
+
+  -#Form to enter new workout
+  %form{'action' => '/action_page.php'}
+    .col-xs-3
+      .form-group
+        = f.label :date
+        = f.date_field :date, class: 'form-control'
+      .form-group
+        = f.label :name
+        = f.text_field :name, class: 'form-control'
+      .form-group
+        = f.label :duration
+        = f.number_field :duration, class: 'form-control', min: '1' #Ensures user cannot enter negative time
+      .form-group
+        = f.label :calories
+        = f.number_field:calories, class: 'form-control', min: '1' #Ensures user cannot enter negative calories
+      .form-group
+        = f.submit t('crud.save'), class: 'btn btn-default'
