@@ -1,4 +1,5 @@
 class ExercisesController < ApplicationController
+  include HTTParty
   before_action :set_exercise, only: [:show, :edit, :update, :destroy]
   before_action :set_workout, only: [:new, :create]
   # Page can only be accessed if user is logged in
@@ -12,6 +13,7 @@ class ExercisesController < ApplicationController
   # GET /exercises/new
   def new
     @exercise = @workout.exercises.new
+    @response = get_exercise_by_category
   end
 
   # GET /exercises/1/edit
@@ -72,4 +74,8 @@ class ExercisesController < ApplicationController
     def set_workout
       @workout = Workout.find_by(id: params[:workout_id]) || Workout.find(exercise_params[:workout_id])
      end
+
+     def get_exercise_by_category
+      return HTTParty.get('https://wger.de/api/v2/exerciseinfo/?language=2&limit=20').parsed_response
+    end
 end
