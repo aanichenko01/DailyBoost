@@ -38,7 +38,6 @@ ActiveRecord::Schema.define(version: 2020_11_24_110721) do
   end
 
   create_table "workouts", force: :cascade do |t|
-    t.date "date", null: false
     t.string "name", null: false
     t.integer "duration"
     t.integer "calories"

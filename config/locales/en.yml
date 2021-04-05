@@ -37,7 +37,6 @@ en:
     calories: ' calories'
     minutes: ' minutes'
     hours: ' hours'
-    date: Date
   crud:
     details: Details
     edit: Edit
@@ -52,18 +51,6 @@ en:
     contact:
       title: Contact Us
       contact_us: Fill in the form below to contact us.
-      name: "Name:"
-      enter_name: Enter your name
-      email: "Email:"
-      enter_email: Enter your email address
-      telephone: "Telephone:"
-      enter_telephone: Enter your telephone number
-      message: "Message:"
-      enter_message: What do you want to say?
-      send: Send
-    request_contact: 
-      no_email: You must provide an email address.
-      email_sent: Email sent, we will be in touch shortly.
   workouts:
     form:
       error: " prohibited this workout from being saved:"
@@ -75,7 +62,6 @@ en:
       name: Workout Type
       duration: Duration(Mins)
     show:
-      date: 'Date:'
       name: 'Workout Type:'
       duration: 'Duration: '
       calories: 'Calories:'
@@ -111,10 +97,3 @@ en:
       sign_up: Sign Up
     footer:
       content: Contact Us
-  contact_mailer:
-    contact_email:
-      name: 'Name:'
-      email: 'Email:'
-      telephone: 'Telephone:'
-      thanks: Thanks,
-      message: Could you get in touch with me please?

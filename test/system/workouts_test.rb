@@ -15,7 +15,6 @@ class WorkoutsTest < ApplicationSystemTestCase
     click_on "New Workout"
 
     fill_in "Calories", with: @workout.calories
-    fill_in "Date", with: @workout.date
     fill_in "Duration", with: @workout.duration
     fill_in "Workout type", with: @workout.name
     click_on "Create Workout"
@@ -29,7 +28,6 @@ class WorkoutsTest < ApplicationSystemTestCase
     click_on "Edit", match: :first
 
     fill_in "Calories", with: @workout.calories
-    fill_in "Date", with: @workout.date
     fill_in "Duration", with: @workout.duration
     fill_in "Workout type", with: @workout.name
     click_on "Update Workout"

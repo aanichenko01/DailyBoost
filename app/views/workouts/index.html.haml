@@ -11,7 +11,6 @@
   %table.table.table-bordered.table-hover
     %thread
       %tr
-        %th.heading= link_to t('units.date'), :sort => "date"
         %th.heading= link_to t('.name'), :sort => "name"
         %th.heading= link_to t('.duration'), :sort => "duration"
         %th.heading= link_to t('units.calories'), :sort => "calories"
@@ -21,7 +20,6 @@
         -#Displays workouts so that most recent entry is at the top
         - @workouts.reverse_each do |workout|
           %tr.hoverable
-            %td= workout.date
             %td= workout.name
             %td= workout.duration
             %td= workout.calories

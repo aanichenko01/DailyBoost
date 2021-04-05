@@ -14,7 +14,6 @@ class WeightsTest < ApplicationSystemTestCase
     visit weights_url
     click_on "New Weight"
 
-    fill_in "Date", with: @weight.date
     fill_in "Weight", with: @weight.weight
     click_on "Create Weight"
 
@@ -26,7 +25,6 @@ class WeightsTest < ApplicationSystemTestCase
     visit weights_url
     click_on "Edit", match: :first
 
-    fill_in "Date", with: @weight.date
     fill_in "Weight", with: @weight.weight
     click_on "Update Weight"
 
