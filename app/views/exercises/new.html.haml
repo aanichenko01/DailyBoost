@@ -1,7 +1,4 @@
 %h1= t('.title')
 
-- @response["results"].each do |post|
-    %div.exercise_display
-        %p= "Name: " + post["name"]
-        %p= "Description: " + post["description"]
-        %p= "Category: " + post["category"]["name"]
+-# this will bring to this page 
+-# = link_to t('.add'), new_exercise_path(workout_id: @workout)

@@ -1,0 +1,17 @@
+<h2> Exercises </h2>
+
+<h4> Select Category: </h4>
+  <%= form_tag(exercises_path, method: :get) do %>
+    <%= text_field_tag(:search, params[:search]) %>
+    <%= submit_tag ("Search") %>
+  <% end %>
+
+<% @response["results"].each do |post| %>
+  <% if post["category"]["name"] == params[:search] %>
+    <div class="exercise_display">
+      <p><%= "Name: " + post["name"]%></p>
+      <p><%= "Description: " + post["description"]%></p>
+      <p><%= "Category: " + post["category"]["name"]%></p>
+    </div>
+  <% end %>
+<% end %>

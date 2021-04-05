@@ -5,6 +5,9 @@ class ExercisesController < ApplicationController
   # Page can only be accessed if user is logged in
   before_action :authenticate_user!
 
+  def  index
+    @response = get_exerciseinfo
+  end 
   # GET /exercises/1
   # GET /exercises/1.json
   def show
@@ -13,7 +16,6 @@ class ExercisesController < ApplicationController
   # GET /exercises/new
   def new
     @exercise = @workout.exercises.new
-    @response = get_exercise_by_category
   end
 
   # GET /exercises/1/edit
@@ -75,7 +77,7 @@ class ExercisesController < ApplicationController
       @workout = Workout.find_by(id: params[:workout_id]) || Workout.find(exercise_params[:workout_id])
      end
 
-     def get_exercise_by_category
-      return HTTParty.get('https://wger.de/api/v2/exerciseinfo/?language=2&limit=20').parsed_response
+     def get_exerciseinfo
+      return HTTParty.get('https://wger.de/api/v2/exerciseinfo/?language=2&limit=100').parsed_response
     end
 end
