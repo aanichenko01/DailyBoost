@@ -19,7 +19,7 @@ class WorkoutTest < ActiveSupport::TestCase
 
     workout.name = 'Cardio'
     workout.duration = 41
-    workout.calories = 100
+    workout.fitness_goal = 'Endurance'
     workout.user = @user
 
     workout.save
@@ -30,7 +30,7 @@ class WorkoutTest < ActiveSupport::TestCase
     workout = Workout.new
 
     workout.duration = 41
-    workout.calories = 100
+    workout.fitness_goal = 'Endurance'
     workout.user = @user
 
     workout.save
@@ -42,7 +42,7 @@ class WorkoutTest < ActiveSupport::TestCase
 
     workout.name = 'Cardio'
     workout.duration = 41
-    workout.calories = 100
+    workout.fitness_goal = 'Endurance'
 
     workout.save
     refute workout.valid?

@@ -3,11 +3,11 @@
 one:
   name: MyString
   duration: 100
-  calories: 100
+  fitness_goal: Edurance
   user_id: 1
 
 two:
   name: MyString
   duration: 100
-  calories: 100
+  fitness_goal: Muscle
   user_id: 2

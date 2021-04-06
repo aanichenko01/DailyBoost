@@ -18,8 +18,8 @@ ActiveRecord::Schema.define(version: 2020_11_24_110721) do
     t.string "category", null: false
     t.string "description", null: false
     t.string "equipment", null: false
-    t.integer "sets"
-    t.integer "reps"
+    t.string "sets"
+    t.string "reps"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["workout_id"], name: "index_exercises_on_workout_id"
@@ -40,7 +40,7 @@ ActiveRecord::Schema.define(version: 2020_11_24_110721) do
   create_table "workouts", force: :cascade do |t|
     t.string "name", null: false
     t.integer "duration"
-    t.integer "calories"
+    t.string "fitness_goal"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "user_id", null: false

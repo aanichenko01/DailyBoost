@@ -16,6 +16,7 @@ class ExercisesController < ApplicationController
     @exercise.category = params[:category].to_i
     @exercise.description = params[:description].to_s
     @exercise.equipment = params[:equipment].to_s
+    #puts @workout.name  use this for determining goal and reps and sets
   end
 
   # GET /exercises/1/edit

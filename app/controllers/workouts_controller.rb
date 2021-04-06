@@ -50,6 +50,7 @@ class WorkoutsController < ApplicationController
   def create
     @workout = Workout.new(workout_params)
     @workout.user = current_user
+    @workout.fitness_goal = params[:fitness_goal]
 
     respond_to do |format|
       if @workout.save
@@ -95,7 +96,7 @@ class WorkoutsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def workout_params
-      params.require(:workout).permit(:name, :duration, :calories)
+      params.require(:workout).permit(:name, :duration, :fitness_goal)
     end
 
     def get_exercise_by_category(category)

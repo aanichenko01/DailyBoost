@@ -34,7 +34,7 @@ en:
   app_description: A fitness website
   units:
     kg: ' kg'
-    calories: ' calories'
+    fitness_goal: ' fitness goal'
     minutes: ' minutes'
     hours: ' hours'
   crud:
@@ -64,7 +64,7 @@ en:
     show:
       name: 'Workout Type:'
       duration: 'Duration: '
-      calories: 'Calories:'
+      fitness_goal: 'Fitness Goal:'
       add: Add Exercise
     created: 'Workout was successfully created.'
     updated: 'Workout was successfully updated.'
