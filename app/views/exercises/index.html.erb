@@ -1,11 +1,14 @@
 <h2> Exercises </h2>
 
-<h4> Select Category: </h4>
+<h4> Search By Category: </h4>
   <%= form_tag(exercises_path, method: :get) do %>
-    <%= select_tag "category", options_for_select([ "10", "8", "12", "14", "11", "9", "13" ], params[:category]) %>
+    <%= select_tag "category", options_for_select([ "Abs", "Arms", "Back", "Calves", "Chest", "Legs", "Shoulders" ]) %>
     <%= submit_tag ("Search") %>
   <% end %>
 
+<% if (params[:category] != nil) then %>
+  <h4><%= "Exercises for: " + params[:category]%></h4>
+<% end %>  
 <% @response["results"].each do |post| %>
     <div class="exercise_display">
       <p><%= "Name: " + post["name"]%></p>

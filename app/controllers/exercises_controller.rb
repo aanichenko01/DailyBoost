@@ -6,7 +6,23 @@ class ExercisesController < ApplicationController
   before_action :authenticate_user!
 
   def  index
-    @response = get_exercise_by_category(params[:category])
+    case params[:category]
+    when "Abs"
+      category = 10
+    when "Arms"
+      category = 8
+    when "Back"
+      category = 12
+    when "Calves"
+      category = 14
+    when "Chest"
+      category = 11
+    when "Legs"
+      category = 9
+    when "Shoulders"
+      category = 13
+    end
+    @response = get_exercise_by_category(category)
   end 
   # GET /exercises/1
   # GET /exercises/1.json
