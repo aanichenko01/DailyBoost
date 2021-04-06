@@ -1,0 +1,16 @@
+<h2> Add Exercises To Your Workout </h2>
+
+<p> Search By Category: </p>
+  <%= form_tag(workout_search_url(), method: :get) do %>
+    <%= select_tag "category", options_for_select([ "Abs", "Arms", "Back", "Calves", "Chest", "Legs", "Shoulders" ]) %>
+    <%= submit_tag ("Search") %>
+  <% end %>
+
+<% @response["results"].each do |post| %>
+    <div class="exercise_display">
+      <p><%= "Name: " + post["name"]%></p>
+      <p><%= "Description: " + post["description"]%></p>
+      <p><%= "Category: " + post["category"].to_s %></p>
+      <%= link_to "Add Exercise", new_exercise_path(workout_id: @workout_id, title: post["name"], categroy: post["category"], description: post["description"], equipment: post["equipment"] ) %>
+    </div>
+<% end %>

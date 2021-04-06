@@ -70,6 +70,7 @@ class ExercisesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def exercise_params
+      puts params.inspect
       params.require(:exercise).permit(:workout_id, :title, :category, :description, :equipment, :sets, :reps)
     end
 

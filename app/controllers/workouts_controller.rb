@@ -10,26 +10,30 @@ class WorkoutsController < ApplicationController
     @workouts = Workout.user_workouts(current_user).order(params[:sort])
   end
 
+  def search
+      @workout_id = params[:workout_id]
+      case params[:category]
+      when "Abs"
+        category = 10
+      when "Arms"
+        category = 8
+      when "Back"
+        category = 12
+      when "Calves"
+        category = 14
+      when "Chest"
+        category = 11
+      when "Legs"
+        category = 9
+      when "Shoulders"
+        category = 13
+      end
+      @response = get_exercise_by_category(category)
+  end
+
   # GET /workouts/1
   # GET /workouts/1.json
   def show
-    case params[:category]
-    when "Abs"
-      category = 10
-    when "Arms"
-      category = 8
-    when "Back"
-      category = 12
-    when "Calves"
-      category = 14
-    when "Chest"
-      category = 11
-    when "Legs"
-      category = 9
-    when "Shoulders"
-      category = 13
-    end
-    @response = get_exercise_by_category(category)
   end
 
   # GET /workouts/new
