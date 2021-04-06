@@ -2,16 +2,14 @@
 
 <h4> Select Category: </h4>
   <%= form_tag(exercises_path, method: :get) do %>
-    <%= select_tag "category", options_for_select([ "Abs", "Arms", "Back", "Calves", "Chest", "Legs", "Shoulders" ], params[:category]) %>
+    <%= select_tag "category", options_for_select([ "10", "8", "12", "14", "11", "9", "13" ], params[:category]) %>
     <%= submit_tag ("Search") %>
   <% end %>
 
 <% @response["results"].each do |post| %>
-  <% if post["category"]["name"] == params[:category] %>
     <div class="exercise_display">
       <p><%= "Name: " + post["name"]%></p>
       <p><%= "Description: " + post["description"]%></p>
-      <p><%= "Category: " + post["category"]["name"]%></p>
+      <p><%= "Category: " + post["category"].to_s %></p>
     </div>
-  <% end %>
 <% end %>

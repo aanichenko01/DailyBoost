@@ -6,7 +6,7 @@ class ExercisesController < ApplicationController
   before_action :authenticate_user!
 
   def  index
-    @response = get_exerciseinfo
+    @response = get_exercise_by_category(params[:category])
   end 
   # GET /exercises/1
   # GET /exercises/1.json
@@ -77,7 +77,7 @@ class ExercisesController < ApplicationController
       @workout = Workout.find_by(id: params[:workout_id]) || Workout.find(exercise_params[:workout_id])
      end
 
-     def get_exerciseinfo
-      return HTTParty.get('https://wger.de/api/v2/exerciseinfo/?language=2&limit=100').parsed_response
+     def get_exercise_by_category(category)
+      return HTTParty.get('https://wger.de/api/v2/exercise/?language=2&category=' + category.to_s).parsed_response
     end
 end
