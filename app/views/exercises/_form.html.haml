@@ -13,6 +13,8 @@
       .form-group
         = f.hidden_field :workout_id, value: @exercise.workout.id, class: 'form-control'
       .form-group
+        = f.label :name
+        %p= @exercise.title
         = f.hidden_field :title, value: @exercise.title, class: 'form-control'
       .form-group
         = f.hidden_field :category, value: @exercise.category, class: 'form-control'

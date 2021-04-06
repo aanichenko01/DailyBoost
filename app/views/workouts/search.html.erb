@@ -9,8 +9,7 @@
 <% @response["results"].each do |post| %>
     <div class="exercise_display">
       <p><%= "Name: " + post["name"]%></p>
-      <p><%= "Description: " + post["description"]%></p>
-      <p><%= "Category: " + post["category"].to_s %></p>
+      <p><%= "Description: " + ActionView::Base.full_sanitizer.sanitize(post["description"])%></p>
       <%= link_to "Add Exercise", new_exercise_path(workout_id: @workout_id, title: post["name"], categroy: post["category"], description: post["description"], equipment: post["equipment"] ) %>
     </div>
 <% end %>

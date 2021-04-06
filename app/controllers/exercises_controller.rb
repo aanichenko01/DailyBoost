@@ -14,7 +14,7 @@ class ExercisesController < ApplicationController
     @exercise = @workout.exercises.new
     @exercise.title = params[:title].to_s
     @exercise.category = params[:category].to_i
-    @exercise.description = params[:description].to_s
+    @exercise.description = ActionView::Base.full_sanitizer.sanitize(params[:description].to_s)
     @exercise.equipment = params[:equipment].to_s
   end
 
@@ -43,7 +43,7 @@ class ExercisesController < ApplicationController
 
     respond_to do |format|
       if @exercise.save
-        format.html { redirect_to @exercise, notice: I18n.t('exercises.created') }
+        format.html { redirect_to @workout, notice: I18n.t('exercises.created') }
         format.json { render :show, status: :created, location: @exercise }
       else
         format.html { render :new }

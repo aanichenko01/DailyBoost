@@ -56,7 +56,7 @@ en:
       error: " prohibited this workout from being saved:"
     new: New Workout
     edit:
-      title: Editing Workout
+      title: Editing Name
     index:
       title: Your Workouts
       name: Workout Type
@@ -84,8 +84,7 @@ en:
       sets: 'Sets:'
       reps: 'Reps:'
       back: Back
-    created: 'Exercise was successfully created.'
-    updated: 'Exercise was successfully updated.'
+    created: 'Exercise was successfully added.'
     deleted: 'Exercise was successfully deleted.'
   shared: 
     header:
