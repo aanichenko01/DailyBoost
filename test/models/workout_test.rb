@@ -18,7 +18,6 @@ class WorkoutTest < ActiveSupport::TestCase
     workout = Workout.new
 
     workout.name = 'Cardio'
-    workout.duration = 41
     workout.fitness_goal = 'Endurance'
     workout.user = @user
 
@@ -29,7 +28,6 @@ class WorkoutTest < ActiveSupport::TestCase
   test 'should not save workout without workout type' do
     workout = Workout.new
 
-    workout.duration = 41
     workout.fitness_goal = 'Endurance'
     workout.user = @user
 
@@ -41,7 +39,6 @@ class WorkoutTest < ActiveSupport::TestCase
     workout = Workout.new
 
     workout.name = 'Cardio'
-    workout.duration = 41
     workout.fitness_goal = 'Endurance'
 
     workout.save

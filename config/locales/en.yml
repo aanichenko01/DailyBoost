@@ -60,10 +60,8 @@ en:
     index:
       title: Your Workouts
       name: Workout Type
-      duration: Duration(Mins)
     show:
       name: 'Workout Type:'
-      duration: 'Duration: '
       fitness_goal: 'Fitness Goal:'
       add: Add Exercise
     created: 'Workout was successfully created.'
