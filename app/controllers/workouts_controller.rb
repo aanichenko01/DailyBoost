@@ -1,4 +1,5 @@
 class WorkoutsController < ApplicationController
+  include HTTParty
   before_action :set_workout, only: [:show, :edit, :update, :destroy]
   # Page can only be accessed if user is logged in
   before_action :authenticate_user!
@@ -12,6 +13,23 @@ class WorkoutsController < ApplicationController
   # GET /workouts/1
   # GET /workouts/1.json
   def show
+    case params[:category]
+    when "Abs"
+      category = 10
+    when "Arms"
+      category = 8
+    when "Back"
+      category = 12
+    when "Calves"
+      category = 14
+    when "Chest"
+      category = 11
+    when "Legs"
+      category = 9
+    when "Shoulders"
+      category = 13
+    end
+    @response = get_exercise_by_category(category)
   end
 
   # GET /workouts/new
@@ -74,5 +92,9 @@ class WorkoutsController < ApplicationController
     # Only allow a list of trusted parameters through.
     def workout_params
       params.require(:workout).permit(:name, :duration, :calories)
+    end
+
+    def get_exercise_by_category(category)
+      return HTTParty.get('https://wger.de/api/v2/exercise/?language=2&limit=500&category=' + category.to_s).parsed_response
     end
 end

@@ -1,29 +1,9 @@
 class ExercisesController < ApplicationController
-  include HTTParty
   before_action :set_exercise, only: [:show, :edit, :update, :destroy]
   before_action :set_workout, only: [:new, :create]
   # Page can only be accessed if user is logged in
   before_action :authenticate_user!
 
-  def  index
-    case params[:category]
-    when "Abs"
-      category = 10
-    when "Arms"
-      category = 8
-    when "Back"
-      category = 12
-    when "Calves"
-      category = 14
-    when "Chest"
-      category = 11
-    when "Legs"
-      category = 9
-    when "Shoulders"
-      category = 13
-    end
-    @response = get_exercise_by_category(category)
-  end 
   # GET /exercises/1
   # GET /exercises/1.json
   def show
@@ -32,6 +12,10 @@ class ExercisesController < ApplicationController
   # GET /exercises/new
   def new
     @exercise = @workout.exercises.new
+    @exercise.title = params[:title].to_s
+    @exercise.category = params[:category].to_i
+    @exercise.description = params[:description].to_s
+    @exercise.equipment = params[:equipment].to_s
   end
 
   # GET /exercises/1/edit
@@ -92,8 +76,4 @@ class ExercisesController < ApplicationController
     def set_workout
       @workout = Workout.find_by(id: params[:workout_id]) || Workout.find(exercise_params[:workout_id])
      end
-
-     def get_exercise_by_category(category)
-      return HTTParty.get('https://wger.de/api/v2/exercise/?language=2&limit=500&category=' + category.to_s).parsed_response
-    end
 end

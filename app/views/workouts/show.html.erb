@@ -1,0 +1,41 @@
+<p>
+  <b>
+    <%= t('.name') %>
+  </b>
+  <%= @workout.name %>
+</p>
+<p>
+  <b>
+    <%= t('.duration') %>
+  </b>
+  <%= @workout.duration.to_s + t('units.minutes') %>
+</p>
+<p>
+  <b>
+    <%= t('.calories') %>
+  </b>
+  <%= @workout.calories %>
+</p>
+<%= link_to t('crud.edit'), edit_workout_path(@workout) %>
+<br>
+<%= link_to t('crud.delete'), @workout, method: :delete, data: { confirm: t('crud.delete_confirm') } %>
+<hr/>
+<% #Renders exercises table only if there are exercises to display %>
+<%= render :partial => "exercises/table" unless @workout.exercises.empty? %>
+
+<h2> Add Exercises To Your Workout </h2>
+
+<h4> Search By Category: </h4>
+  <%= form_tag(workout_url(@workout), method: :get) do %>
+    <%= select_tag "category", options_for_select([ "Abs", "Arms", "Back", "Calves", "Chest", "Legs", "Shoulders" ]) %>
+    <%= submit_tag ("Search") %>
+  <% end %>
+
+<% @response["results"].each do |post| %>
+    <div class="exercise_display">
+      <p><%= "Name: " + post["name"]%></p>
+      <p><%= "Description: " + post["description"]%></p>
+      <p><%= "Category: " + post["category"].to_s %></p>
+      <%= link_to "Add Exercise", new_exercise_path(workout_id: @workout, title: post["name"], categroy: post["category"], description: post["description"], equipment: post["equipment"] ) %>
+    </div>
+<% end %>

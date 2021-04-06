@@ -13,16 +13,6 @@ class ExercisesControllerTest < ActionDispatch::IntegrationTest
     post user_session_url
   end
 
-  test "should get new" do
-    get new_exercise_url(workout_id: @exercise.workout_id)
-    assert_response :success
-
-    assert_select 'h1', 'New Exercise'
-    assert_template layout: 'application'
-    assert_template partial: '_header'
-    assert_template partial: '_footer'
-  end
-
   test "should create exercise" do
     assert_difference('Exercise.count') do
       post exercises_url, params: { exercise: { reps: @exercise.reps, sets: @exercise.sets, title: @exercise.title, category: @exercise.category, description: @exercise.description, equipment: @exercise.equipment, workout_id: @exercise.workout_id } }
