@@ -54,7 +54,7 @@ class WorkoutsControllerTest < ActionDispatch::IntegrationTest
     get edit_workout_url(@workout)
     assert_response :success
 
-    assert_select 'h1', 'Editing Workout'
+    assert_select 'h1', 'Editing Name'
     assert_template layout: 'application'
     assert_template partial: '_header'
     assert_template partial: '_footer'

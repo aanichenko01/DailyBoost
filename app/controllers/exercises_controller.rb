@@ -14,6 +14,7 @@ class ExercisesController < ApplicationController
     @exercise = @workout.exercises.new
     @exercise.title = params[:title].to_s
     @exercise.category = params[:category].to_i
+    #Strips description of html tags
     @exercise.description = ActionView::Base.full_sanitizer.sanitize(params[:description].to_s)
     @exercise.equipment = params[:equipment].to_s
   end
@@ -38,7 +39,7 @@ class ExercisesController < ApplicationController
       @exercise.reps = "6 to 12"
     when "Muscle Strength"
       @exercise.sets = "2 to 3"
-      @exercise.reps = "Maximum 6"
+      @exercise.reps = "Max 6"
     end
 
     respond_to do |format|

@@ -18,7 +18,7 @@ class ExercisesControllerTest < ActionDispatch::IntegrationTest
       post exercises_url, params: { exercise: { reps: @exercise.reps, sets: @exercise.sets, title: @exercise.title, category: @exercise.category, description: @exercise.description, equipment: @exercise.equipment, workout_id: @exercise.workout_id } }
     end
 
-    assert_redirected_to exercise_url(Exercise.last)
+    assert_redirected_to workout_url(@workout)
   end
 
   test "should show exercise" do
