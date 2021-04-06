@@ -16,7 +16,6 @@ class ExercisesController < ApplicationController
     @exercise.category = params[:category].to_i
     @exercise.description = params[:description].to_s
     @exercise.equipment = params[:equipment].to_s
-    #puts @workout.name  use this for determining goal and reps and sets
   end
 
   # GET /exercises/1/edit
@@ -27,6 +26,20 @@ class ExercisesController < ApplicationController
   # POST /exercises.json
   def create
     @exercise = @workout.exercises.new(exercise_params)
+    case @workout.fitness_goal
+    when "General Fitness"
+      @exercise.sets = "1 or 2"
+      @exercise.reps = "8 to 15"
+    when "Endurance"
+      @exercise.sets = "3 to 4"
+      @exercise.reps = "15+"
+    when "Muscle Mass"
+      @exercise.sets = "3 to 6"
+      @exercise.reps = "6 to 12"
+    when "Muscle Strength"
+      @exercise.sets = "2 to 3"
+      @exercise.reps = "Maximum 6"
+    end
 
     respond_to do |format|
       if @exercise.save

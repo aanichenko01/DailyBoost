@@ -19,6 +19,6 @@
         = f.number_field :duration, class: 'form-control', min: '1' #Ensures user cannot enter negative time
       .form-group
         = f.label :fitness_goal
-        = select_tag :fitness_goal, options_for_select(["General Fitness", "Endurance"], params[:fitness_goal])
+        = select_tag :fitness_goal, options_for_select(["General Fitness", "Endurance", "Muscle Mass", "Muscle Strength"], params[:fitness_goal])
       .form-group
         = f.submit t('crud.save'), class: 'btn btn-default'
