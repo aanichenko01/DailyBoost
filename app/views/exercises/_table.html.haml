@@ -2,16 +2,16 @@
   %thread
     %tr
       %th= t('.exercises')
+      %th= 'description'
       %th= t('.sets')
       %th= t('.reps')
-      %th
       %th
 
   %tbody
     - @workout.exercises.each do |exercise|
       %tr{id: "exercise_#{exercise.id}", class: 'hoverable'}
         %td= exercise.title
+        %td= exercise.description
         %td= exercise.sets
         %td= exercise.reps
-        %td= link_to t('crud.edit'), edit_exercise_path(exercise)
         %td= link_to t('crud.delete'), exercise, :method => :delete, :data => { :confirm => t('crud.delete_confirm') }, :remote => true

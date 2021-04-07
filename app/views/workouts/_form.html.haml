@@ -12,16 +12,10 @@
   %form{'action' => '/action_page.php'}
     .col-xs-3
       .form-group
-        = f.label :date
-        = f.date_field :date, class: 'form-control'
-      .form-group
         = f.label :name
         = f.text_field :name, class: 'form-control'
       .form-group
-        = f.label :duration
-        = f.number_field :duration, class: 'form-control', min: '1' #Ensures user cannot enter negative time
-      .form-group
-        = f.label :calories
-        = f.number_field:calories, class: 'form-control', min: '1' #Ensures user cannot enter negative calories
+        = f.label :fitness_goal
+        = select_tag :fitness_goal, options_for_select(["General Fitness", "Endurance", "Muscle Mass", "Muscle Strength"], params[:fitness_goal])
       .form-group
         = f.submit t('crud.save'), class: 'btn btn-default'

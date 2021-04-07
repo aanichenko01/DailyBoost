@@ -34,10 +34,9 @@ en:
   app_description: A fitness website
   units:
     kg: ' kg'
-    calories: ' calories'
+    fitness_goal: ' fitness goal'
     minutes: ' minutes'
     hours: ' hours'
-    date: Date
   crud:
     details: Details
     edit: Edit
@@ -52,33 +51,18 @@ en:
     contact:
       title: Contact Us
       contact_us: Fill in the form below to contact us.
-      name: "Name:"
-      enter_name: Enter your name
-      email: "Email:"
-      enter_email: Enter your email address
-      telephone: "Telephone:"
-      enter_telephone: Enter your telephone number
-      message: "Message:"
-      enter_message: What do you want to say?
-      send: Send
-    request_contact: 
-      no_email: You must provide an email address.
-      email_sent: Email sent, we will be in touch shortly.
   workouts:
     form:
       error: " prohibited this workout from being saved:"
     new: New Workout
     edit:
-      title: Editing Workout
+      title: Editing Name
     index:
       title: Your Workouts
       name: Workout Type
-      duration: Duration(Mins)
     show:
-      date: 'Date:'
       name: 'Workout Type:'
-      duration: 'Duration: '
-      calories: 'Calories:'
+      fitness_goal: 'Fitness Goal:'
       add: Add Exercise
     created: 'Workout was successfully created.'
     updated: 'Workout was successfully updated.'
@@ -100,8 +84,7 @@ en:
       sets: 'Sets:'
       reps: 'Reps:'
       back: Back
-    created: 'Exercise was successfully created.'
-    updated: 'Exercise was successfully updated.'
+    created: 'Exercise was successfully added.'
     deleted: 'Exercise was successfully deleted.'
   shared: 
     header:
@@ -111,10 +94,3 @@ en:
       sign_up: Sign Up
     footer:
       content: Contact Us
-  contact_mailer:
-    contact_email:
-      name: 'Name:'
-      email: 'Email:'
-      telephone: 'Telephone:'
-      thanks: Thanks,
-      message: Could you get in touch with me please?

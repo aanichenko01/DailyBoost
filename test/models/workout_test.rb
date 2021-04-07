@@ -17,34 +17,18 @@ class WorkoutTest < ActiveSupport::TestCase
   test 'should save valid workout' do
     workout = Workout.new
 
-    workout.date = 2001-01-01
     workout.name = 'Cardio'
-    workout.duration = 41
-    workout.calories = 100
+    workout.fitness_goal = 'Endurance'
     workout.user = @user
 
     workout.save
     assert workout.valid?
   end
 
-  test 'should not save workout without date' do
-    workout = Workout.new
-
-    workout.name = 'Cardio'
-    workout.duration = 41
-    workout.calories = 100
-    workout.user = @user
-
-    workout.save
-    refute workout.valid?
-  end
-
   test 'should not save workout without workout type' do
     workout = Workout.new
 
-    workout.date = 2001-01-01
-    workout.duration = 41
-    workout.calories = 100
+    workout.fitness_goal = 'Endurance'
     workout.user = @user
 
     workout.save
@@ -54,10 +38,8 @@ class WorkoutTest < ActiveSupport::TestCase
   test 'should not save workout without user' do
     workout = Workout.new
 
-    workout.date = 2001-01-01
     workout.name = 'Cardio'
-    workout.duration = 41
-    workout.calories = 100
+    workout.fitness_goal = 'Endurance'
 
     workout.save
     refute workout.valid?

@@ -1,5 +1,4 @@
-%br
-%br
+
 = form_for @exercise do |f|
   - if @exercise.errors.any?
     #error_explanation
@@ -12,27 +11,16 @@
   %form{'action' => '/action_page.php'}
     .col-xs-3
       .form-group
-        = f.label :workout
-        -#Renders the workout type that this exercise is associated with
-        %p= @exercise.workout.name
         = f.hidden_field :workout_id, value: @exercise.workout.id, class: 'form-control'
       .form-group
-        = f.label :title
-        = f.text_field :title, class: 'form-control'
+        = f.label :name
+        %p= @exercise.title
+        = f.hidden_field :title, value: @exercise.title, class: 'form-control'
       .form-group
-        = f.label :category
-        = f.text_field :category, class: 'form-control'
+        = f.hidden_field :category, value: @exercise.category, class: 'form-control'
       .form-group
-        = f.label :description
-        = f.text_field :description, class: 'form-control'
+        = f.hidden_field :description, value: @exercise.description, class: 'form-control'
       .form-group
-        = f.label :equipment
-        = f.text_field :equipment, class: 'form-control'
-      .form-group
-        = f.label :sets
-        = f.number_field :sets, class: 'form-control', min: '1' #Ensures user cannot enter less than 1 sets
-      .form-group
-        = f.label :reps
-        = f.number_field :reps, class: 'form-control', min: '1' #Ensures user cannot enter less than 1 reps
+        = f.hidden_field :equipment, value: @exercise.equipment, class: 'form-control'
       .form-group
         = f.submit t('crud.save'), class: 'btn btn-default'
