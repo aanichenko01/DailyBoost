@@ -6,8 +6,8 @@ one:
   category: Abs
   description: Do a simple plank
   equipment: None
-  sets: 1
-  reps: 1
+  sets: "1"
+  reps: "1"
 
 
 two:
@@ -16,5 +16,5 @@ two:
   category: Abs
   description: Do a simple plank
   equipment: None
-  sets: 1
-  reps: 1
+  sets: "1"
+  reps: "1"

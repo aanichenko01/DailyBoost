@@ -22,8 +22,8 @@ class ExerciseTest < ActiveSupport::TestCase
     exercise.category = 'Abs'
     exercise.description = 'Do a plank'
     exercise.equipment = 'None'
-    exercise.sets = 3
-    exercise.reps = 10
+    exercise.sets = '3'
+    exercise.reps = '10'
 
     exercise.save
     assert exercise.valid?
@@ -33,8 +33,8 @@ class ExerciseTest < ActiveSupport::TestCase
     exercise = Exercise.new
 
     exercise.workout = @workout
-    exercise.sets = 3
-    exercise.reps = 10
+    exercise.sets = '3'
+    exercise.reps = '10'
     exercise.category = 'Abs'
     exercise.description = 'Do a plank'
     exercise.equipment = 'None'
@@ -47,8 +47,8 @@ class ExerciseTest < ActiveSupport::TestCase
     exercise = Exercise.new
 
     exercise.title = 'My Exercise'
-    exercise.sets = 3
-    exercise.reps = 10
+    exercise.sets = '3'
+    exercise.reps = '10'
     exercise.category = 'Abs'
     exercise.description = 'Do a plank'
     exercise.equipment = 'None'
@@ -62,8 +62,8 @@ class ExerciseTest < ActiveSupport::TestCase
 
     exercise.title = 'My Exercise'
     exercise.workout = @workout
-    exercise.sets = 3
-    exercise.reps = 10
+    exercise.sets = '3'
+    exercise.reps = '10'
     exercise.category = 'Abs'
     exercise.description = 'Do a plank'
     exercise.equipment = 'None'

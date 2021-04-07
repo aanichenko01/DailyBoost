@@ -12,6 +12,11 @@ class ExercisesController < ApplicationController
   # GET /exercises/new
   def new
     @exercise = @workout.exercises.new
+    @exercise.title = params[:title].to_s
+    @exercise.category = params[:category].to_i
+    #Strips description of html tags
+    @exercise.description = ActionView::Base.full_sanitizer.sanitize(params[:description].to_s)
+    @exercise.equipment = params[:equipment].to_s
   end
 
   # GET /exercises/1/edit
@@ -22,10 +27,24 @@ class ExercisesController < ApplicationController
   # POST /exercises.json
   def create
     @exercise = @workout.exercises.new(exercise_params)
+    case @workout.fitness_goal
+    when "General Fitness"
+      @exercise.sets = "1 or 2"
+      @exercise.reps = "8 to 15"
+    when "Endurance"
+      @exercise.sets = "3 to 4"
+      @exercise.reps = "15+"
+    when "Muscle Mass"
+      @exercise.sets = "3 to 6"
+      @exercise.reps = "6 to 12"
+    when "Muscle Strength"
+      @exercise.sets = "2 to 3"
+      @exercise.reps = "Max 6"
+    end
 
     respond_to do |format|
       if @exercise.save
-        format.html { redirect_to @exercise, notice: I18n.t('exercises.created') }
+        format.html { redirect_to @workout, notice: I18n.t('exercises.created') }
         format.json { render :show, status: :created, location: @exercise }
       else
         format.html { render :new }

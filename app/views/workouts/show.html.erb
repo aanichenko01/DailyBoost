@@ -1,0 +1,20 @@
+<p>
+  <b>
+    <%= t('.name') %>
+  </b>
+  <%= @workout.name %>
+</p>
+<p>
+  <b>
+    <%= t('.fitness_goal') %>
+  </b>
+  <%= @workout.fitness_goal %>
+</p>
+<%= link_to 'Edit Name', edit_workout_path(@workout) %>
+<br>
+<%= link_to 'Delete Workout', @workout, method: :delete, data: { confirm: t('crud.delete_confirm') } %>
+<hr/>
+<% #Renders exercises table only if there are exercises to display %>
+<%= render :partial => "exercises/table" unless @workout.exercises.empty? %>
+
+ <%= link_to "Add Exercise", workout_search_path(workout_id: @workout.id) %>

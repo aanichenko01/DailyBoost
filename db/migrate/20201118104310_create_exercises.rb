@@ -6,8 +6,8 @@ class CreateExercises < ActiveRecord::Migration[5.2]
       t.string :category, null: false
       t.string :description, null: false
       t.string :equipment, null: false
-      t.integer :sets
-      t.integer :reps
+      t.string :sets
+      t.string :reps
 
       t.timestamps
     end

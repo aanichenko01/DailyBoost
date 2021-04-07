@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
 
   # Resouce paths
-  resources :exercises, except: [:index]
-  resources :workouts
+  resources :exercises
+  resources :workouts do
+    get "search"
+  end
   devise_for :users
 
   # Home page is root
