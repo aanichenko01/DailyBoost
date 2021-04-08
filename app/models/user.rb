@@ -5,5 +5,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   # Each user has many workouts
-  has_many :workouts
+  has_many :workouts,   dependent: :destroy
+  has_many :logged_workouts,   dependent: :destroy
 end
