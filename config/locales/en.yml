@@ -67,6 +67,23 @@ en:
     created: 'Workout was successfully created.'
     updated: 'Workout was successfully updated.'
     deleted: 'Workout was successfully deleted.'
+
+  logged_workouts:
+    form:
+      error: " prohibited this workout from being saved:"
+    new: Log today's workout
+    edit:
+      title: Editing Name
+    index:
+      title: Your Logged Workouts
+      name: Workout Type
+    show:
+      name: 'Workout Type:'
+      date: 'Date:'
+    created: 'Workout was successfully created.'
+    updated: 'Workout was successfully updated.'
+    deleted: 'Workout was successfully deleted.'
+
   exercises: 
     form:
       error: " prohibited this exercise from being saved:"

@@ -1,0 +1,10 @@
+<%= month_calendar(events: @logged_workouts) do |date, logged_workouts| %>
+  <%= date %>
+
+  <% logged_workouts.each do |logged_workout| %>
+    <div>
+      <%= link_to logged_workout.name, logged_workout, class: "link"%>
+    </div>
+
+  <% end %>
+<% end %>
