@@ -10,11 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< Updated upstream
 ActiveRecord::Schema.define(version: 2021_04_10_154334) do
-=======
-ActiveRecord::Schema.define(version: 2021_04_07_135252) do
->>>>>>> Stashed changes
 
   create_table "exercises", force: :cascade do |t|
     t.integer "workout_id", null: false
@@ -32,16 +28,11 @@ ActiveRecord::Schema.define(version: 2021_04_07_135252) do
   create_table "logged_workouts", force: :cascade do |t|
     t.string "name"
     t.datetime "start_time"
-<<<<<<< Updated upstream
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "week_num"
     t.index ["user_id"], name: "index_logged_workouts_on_user_id"
-=======
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
->>>>>>> Stashed changes
   end
 
   create_table "users", force: :cascade do |t|
