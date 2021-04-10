@@ -80,6 +80,10 @@ en:
     show:
       name: 'Workout Type:'
       date: 'Date:'
+    achievements:
+      title: Achievements
+    calendar:
+      title: Calendar
     created: 'Workout was successfully created.'
     updated: 'Workout was successfully updated.'
     deleted: 'Workout was successfully deleted.'

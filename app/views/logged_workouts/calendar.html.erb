@@ -1,10 +1,22 @@
+<h2>
+  <%= t('.title') %>
+</h2>
+
+<% wm = 0  %>
+
 <%= month_calendar(events: @logged_workouts) do |date, logged_workouts| %>
-  <%= date %>
+  <%= date.to_formatted_s(:short) %>
+
 
   <% logged_workouts.each do |logged_workout| %>
+    
+	
+
     <div>
       <%= link_to logged_workout.name, logged_workout, class: "link"%>
+      
     </div>
 
+    
   <% end %>
 <% end %>

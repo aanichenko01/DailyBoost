@@ -9,10 +9,15 @@ class LoggedWorkoutsController < ApplicationController
   end
 
   def calendar
+    
     @logged_workouts = LoggedWorkout.user_logged_workouts(current_user).order(params[:sort])
   end
 
-  
+  def achievements
+   
+    @logged_workouts = LoggedWorkout.user_logged_workouts(current_user).order(params[:sort])
+    
+ end
 
   # GET /logged_workouts/1 or /logged_workouts/1.json
   def show
