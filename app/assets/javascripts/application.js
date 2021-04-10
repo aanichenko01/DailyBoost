@@ -16,6 +16,7 @@
 //= require jquery.validate
 //= require activestorage
 //= require turbolinks
+
 //= require_tree .
 
 //Validates contact form

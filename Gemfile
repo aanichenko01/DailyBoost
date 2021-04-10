@@ -66,9 +66,15 @@ gem 'jquery-rails'
 gem 'rails-controller-testing'
 gem 'jquery-validation-rails'
 gem 'devise'
+<<<<<<< Updated upstream
 gem 'httparty'
 
 
 gem 'wdm', '>= 0.1.0' if Gem.win_platform?
 
 gem "simple_calendar", "~> 2.4"
+=======
+gem 'groupdate'
+
+gem "simple_calendar", "~> 2.0"
+>>>>>>> Stashed changes

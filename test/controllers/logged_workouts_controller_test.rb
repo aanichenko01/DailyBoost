@@ -17,7 +17,11 @@ class LoggedWorkoutsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create logged_workout" do
     assert_difference('LoggedWorkout.count') do
+<<<<<<< Updated upstream
       post logged_workouts_url, params: { logged_workout: { name: @logged_workout.name, start_time: @logged_workout.start_time, user_id: @logged_workout.user_id } }
+=======
+      post logged_workouts_url, params: { logged_workout: { name: @logged_workout.name, start_time: @logged_workout.start_time } }
+>>>>>>> Stashed changes
     end
 
     assert_redirected_to logged_workout_url(LoggedWorkout.last)
@@ -34,7 +38,11 @@ class LoggedWorkoutsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update logged_workout" do
+<<<<<<< Updated upstream
     patch logged_workout_url(@logged_workout), params: { logged_workout: { name: @logged_workout.name, start_time: @logged_workout.start_time, user_id: @logged_workout.user_id } }
+=======
+    patch logged_workout_url(@logged_workout), params: { logged_workout: { name: @logged_workout.name, start_time: @logged_workout.start_time } }
+>>>>>>> Stashed changes
     assert_redirected_to logged_workout_url(@logged_workout)
   end
 
