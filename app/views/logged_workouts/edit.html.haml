@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 %h2= t('.title')
 
 %br
@@ -17,3 +18,12 @@
         = f.text_field :name, class: 'form-control'
       .form-group
         = f.submit t('crud.save'), class: 'btn btn-default'
+=======
+%h1 Editing logged_workout
+
+= render 'form'
+
+= link_to 'Show', @logged_workout
+\|
+= link_to 'Back', logged_workouts_path
+>>>>>>> Stashed changes

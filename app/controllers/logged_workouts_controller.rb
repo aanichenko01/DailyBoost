@@ -1,5 +1,6 @@
 class LoggedWorkoutsController < ApplicationController
   before_action :set_logged_workout, only: %i[ show edit update destroy ]
+<<<<<<< Updated upstream
   # Page can only be accessed if user is logged in
   before_action :authenticate_user!
 
@@ -19,11 +20,22 @@ class LoggedWorkoutsController < ApplicationController
     
  end
 
+=======
+
+  # GET /logged_workouts or /logged_workouts.json
+  def index
+    @logged_workouts = LoggedWorkout.all
+  end
+
+>>>>>>> Stashed changes
   # GET /logged_workouts/1 or /logged_workouts/1.json
   def show
   end
 
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
   # GET /logged_workouts/new
   def new
     @logged_workout = LoggedWorkout.new
@@ -36,7 +48,10 @@ class LoggedWorkoutsController < ApplicationController
   # POST /logged_workouts or /logged_workouts.json
   def create
     @logged_workout = LoggedWorkout.new(logged_workout_params)
+<<<<<<< Updated upstream
     @logged_workout.user = current_user
+=======
+>>>>>>> Stashed changes
 
     respond_to do |format|
       if @logged_workout.save
@@ -79,6 +94,10 @@ class LoggedWorkoutsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def logged_workout_params
+<<<<<<< Updated upstream
       params.require(:logged_workout).permit(:name, :start_time, :user_id)
+=======
+      params.require(:logged_workout).permit(:name, :start_time)
+>>>>>>> Stashed changes
     end
 end
