@@ -16,10 +16,7 @@ class LoggedWorkoutsTest < ApplicationSystemTestCase
 
     fill_in "Name", with: @logged_workout.name
     fill_in "Start time", with: @logged_workout.start_time
-<<<<<<< Updated upstream
     fill_in "User", with: @logged_workout.user_id
-=======
->>>>>>> Stashed changes
     click_on "Create Logged workout"
 
     assert_text "Logged workout was successfully created"
@@ -32,10 +29,7 @@ class LoggedWorkoutsTest < ApplicationSystemTestCase
 
     fill_in "Name", with: @logged_workout.name
     fill_in "Start time", with: @logged_workout.start_time
-<<<<<<< Updated upstream
     fill_in "User", with: @logged_workout.user_id
-=======
->>>>>>> Stashed changes
     click_on "Update Logged workout"
 
     assert_text "Logged workout was successfully updated"

@@ -2,7 +2,6 @@
 
 one:
   name: MyString
-<<<<<<< Updated upstream
   start_time: 2021-04-07 18:37:31
   user: one
 
@@ -10,10 +9,3 @@ two:
   name: MyString
   start_time: 2021-04-07 18:37:31
   user: two
-=======
-  start_time: 2021-04-07 14:52:52
-
-two:
-  name: MyString
-  start_time: 2021-04-07 14:52:52
->>>>>>> Stashed changes
