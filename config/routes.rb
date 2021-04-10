@@ -18,4 +18,9 @@ Rails.application.routes.draw do
   # Calendar page
   get 'calendar', to: 'logged_workouts#calendar'
 
+  # Achievements page
+  get 'achievements', to: 'logged_workouts#achievements'
+
+
+
 end

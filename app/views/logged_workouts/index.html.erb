@@ -2,9 +2,12 @@
   <%= t('.title') %>
 </h2>
 
-
+</br>
 
 <%= link_to t('logged_workouts.new'), new_logged_workout_path, class: 'btn btn-success btn-lg'%>
+
+
+<hr>
 
 <table class="table table-striped table-bordered table-hover table-responsive-md"
   style="width:100%">
@@ -18,18 +21,18 @@
 
   <tbody>
     <% @logged_workouts.reverse_each do |logged_workout| %>
-  <tr class="hoverable">
-    <td>
-      <%= logged_workout.name %>
-    </td>
-    <td>
-      <%= logged_workout.start_time %>
-    </td>
-    <td>
-      <%= link_to t('crud.details'), logged_workout %>
-    </td>
-  </tr>
-<% end %>
+      <tr class="hoverable">
+        <td>
+          <%= logged_workout.name %>
+        </td>
+        <td>
+          <%= logged_workout.start_time %>
+        </td>
+        <td>
+          <%= link_to t('crud.details'), logged_workout %>
+        </td>
+      </tr>
+    <% end %>
 
   </tbody>
 </table>

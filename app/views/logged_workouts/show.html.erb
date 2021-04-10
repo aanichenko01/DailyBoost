@@ -6,12 +6,15 @@
 	<p>
 	  	<strong>Date:</strong>
 	  	<%= @logged_workout.start_time %>
+	  
 	</p>
 
 	<p>
 		<strong>Workout name:</strong>
 		<%= @logged_workout.name %>
 	</p>
+
+
 
 
 	<%= link_to 'Edit', edit_logged_workout_path(@logged_workout), class: 'btn btn-info btn-md' %>   

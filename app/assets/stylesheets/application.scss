@@ -14,15 +14,17 @@
 *= require_self
 *= require simple_calendar
 */
-
-@import "bootstrap-sprockets";
 @import "bootstrap";
+@import "bootstrap-sprockets";
+
 @import "simple_calendar";
 
 /* Default font for entire website */
 $font: Arial, Helvetica, sans-serif;
 $blue: #3a69c0;
 $font_color: #292929;
+
+
 
 body {
   font-family: $font;
@@ -71,3 +73,5 @@ a:hover {
 footer {
   padding: 30px;
 }
+
+
