@@ -44,7 +44,7 @@
 
 <% m_goal = (days_in_month*current_user.difficulty)/7%>
 
-<% if m_w > m_goal %>
+<% if m_w > m_goal && weekly_streak >= 3 %>
 	<%	monthly_streak = monthly_streak + 1%>
 <% end %>
 
