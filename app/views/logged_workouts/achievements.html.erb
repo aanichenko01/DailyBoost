@@ -2,55 +2,136 @@
   <%= t('.title') %>
 </h2>
 
-<% 	weekly_streak = 0 %>
-<% 	monthly_streak = 0 %>
-<%	w_w=0 #workouts in a week%>
-<%	m_w=0 #workouts in a month%>
+<% 
 
-<% date = Time.new
-	x = Date.new(date.year, date.month, date.day).cweek 
+weekly_streak = 0 
+monthly_streak = 0 
+w_w=0 #workouts in a week
+p_w_w=0 #workouts in previous week
+m_w=0 #workouts in a month
+p_m_w=0 #workouts in a month
 
-	days_in_month = Time.days_in_month(date.month, date.year) %>
+date = Time.new
+x = Date.new(date.year, date.month, date.day).cweek #current day's week number
 
+days_in_month = Time.days_in_month(date.month, date.year) 
 
-<%# calculate weekly streak: %>
-<% @logged_workouts.each do |logged_workout| %>
+if date.month == 1
+	days_in_previous_month = Time.days_in_month(12, date.year-1)
+elsif 
+	days_in_previous_month = Time.days_in_month(date.month-1, date.year) 
+end 
+
+# calculate weekly streak: 
+@logged_workouts.each do |logged_workout| 
     
-	<% 	y = logged_workout.start_time.year  %>
-	<% 	m = logged_workout.start_time.month  %>
-	<% 	d = logged_workout.start_time.day  %>
+ 	y = logged_workout.start_time.year  
+ 	m = logged_workout.start_time.month  
+ 	d = logged_workout.start_time.day  
 
-	<% week_num = Date.new(y, m, d).cweek %>
-	<% logged_workout.week_num = week_num %>
-<% end %>
+	week_num = Date.new(y, m, d).cweek 
+	logged_workout.week_num = week_num 
+end 
 
-<% @logged_workouts.each do |logged_workout| %> 
-	<% if logged_workout.week_num == x %>
-		<% w_w = w_w+1 %>
-	<% end %>
-<% end %>
+@logged_workouts.each do |logged_workout|  
+	if logged_workout.week_num == x && logged_workout.start_time.year == date.year
+		
+		w_w = w_w+1 
+ 	end 
+end 
 
-<% if w_w >= current_user.difficulty %>
-	<%	weekly_streak = weekly_streak + 1%>
-<% end %>
+@logged_workouts.each do |logged_workout| 
+	
+	#check if we are in the first week of the year and get the last
+	#week_num of the previous year
+	if x == 1 && logged_workout.week_num==53 && logged_workout.start_time.year == date.year - 1
+		
+		p_w_w = p_w_w+1 
+
+	#if there was no week 53 in previous year, week 52 was the last week
+	elsif x == 1 && logged_workout.week_num==52 && logged_workout.start_time.year == date.year - 1
+		
+		p_w_w = p_w_w+1 
+
+	#if not in first week of year, just find the workouts of the previous
+	#week in the same year
+	elsif x > 1 && logged_workout.week_num == x-1 && logged_workout.start_time.year == date.year
+		
+		p_w_w = p_w_w+1  
+		
+	end 
+end 
 
 
-<%# calculate monthly streak: %>
-<% @logged_workouts.each do |logged_workout| %> 
-	<% if logged_workout.start_time.month == date.month %>
-		<% m_w = m_w+1 %>
-	<% end %>
-<% end %>
+#check if previous week didn't have the desired amount of
+#workouts with the chosen difficult
+if p_w_w < current_user.difficulty 
+	if w_w >= current_user.difficulty 
+		weekly_streak = 1
+	else
+		weekly_streak = 0
+	end 
+end
 
-<% m_goal = (days_in_month*current_user.difficulty)/7%>
+#check if previous week had the desired amount of workouts
+#with the chosen difficulty
+if p_w_w >= current_user.difficulty && weekly_streak > 0
 
-<% if m_w > m_goal && weekly_streak >= 3 %>
-	<%	monthly_streak = monthly_streak + 1%>
-<% end %>
+#if true, check whether this week has the desired amount of
+#workouts to increase the streak
+	if w_w >= current_user.difficulty 
+		weekly_streak = weekly_streak + 1
+	
+	end 
+end 
+
+# calculate monthly streak: 
+@logged_workouts.each do |logged_workout| 
+	if logged_workout.start_time.month == date.month 
+		m_w = m_w+1 
+	end 
+end 
+
+@logged_workouts.each do |logged_workout| 
+	if logged_workout.start_time.month == 12 && logged_workout.start_time.year == date.year-1
+		p_m_w = p_m_w+1 
+
+	elsif logged_workout.start_time.month == date.month-1 
+		p_m_w = p_m_w+1 
+
+	end 
+end 
+
+m_goal = (days_in_month*current_user.difficulty)/7
+p_m_goal = (days_in_previous_month*current_user.difficulty)/7
 
 
+#check if previous month matched the desired goal
+if p_m_w <= p_m_goal
 
-<%# display the stats: %>
+	if m_w > m_goal 
+		monthly_streak = 1
+	else
+		monthly_streak = 0
+	end 
+end
+
+#check if previous month matched the desired goal
+if p_m_w > p_m_goal && monthly_streak > 0
+
+#if true, check whether this week has the desired amount of
+#workouts to increase the streak
+	if m_w > m_goal 
+		monthly_streak = monthly_streak + 1
+	
+	end 
+end 
+
+
+# display the stats: 
+
+%>
+
 <div class="jumbotron">
 	<h2>
 		<strong>Weekly streak: </strong>
