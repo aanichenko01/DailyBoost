@@ -3,11 +3,17 @@
 </h2>
 
 <% 	weekly_streak = 0 %>
-<%	w=0 %>
+<% 	monthly_streak = 0 %>
+<%	w_w=0 #workouts in a week%>
+<%	m_w=0 #workouts in a month%>
 
 <% date = Time.new
-	x = Date.new(date.year, date.month, date.day).cweek %>
+	x = Date.new(date.year, date.month, date.day).cweek 
 
+	days_in_month = Time.days_in_month(date.month, date.year) %>
+
+
+<%# calculate weekly streak: %>
 <% @logged_workouts.each do |logged_workout| %>
     
 	<% 	y = logged_workout.start_time.year  %>
@@ -20,18 +26,41 @@
 
 <% @logged_workouts.each do |logged_workout| %> 
 	<% if logged_workout.week_num == x %>
-		<% w = w+1 %>
+		<% w_w = w_w+1 %>
 	<% end %>
 <% end %>
 
-<% if w >= current_user.difficulty %>
+<% if w_w >= current_user.difficulty %>
 	<%	weekly_streak = weekly_streak + 1%>
 <% end %>
+
+
+<%# calculate monthly streak: %>
+<% @logged_workouts.each do |logged_workout| %> 
+	<% if logged_workout.start_time.month == date.month %>
+		<% m_w = m_w+1 %>
+	<% end %>
+<% end %>
+
+<% m_goal = (days_in_month*current_user.difficulty)/7%>
+
+<% if m_w > m_goal %>
+	<%	monthly_streak = monthly_streak + 1%>
+<% end %>
+
+
+
+<%# display the stats: %>
 <div class="jumbotron">
 	<h2>
 		<strong>Weekly streak: </strong>
 		
 		<%= weekly_streak %>
+	</h2>
+	<h2>
+		<strong>Monthly streak: </strong>
+		
+		<%= monthly_streak %>
 
 		
 	</h2>
@@ -58,9 +87,15 @@
 	</p>
 
 	<p>
-		Workouts this week: 
-		<%=w %>
-		
+		Workouts this month: 
+		<%=m_w %>		
 	</p>
+
+	<p>
+		Workouts this week: 
+		<%=w_w %>		
+	</p>
+
+	
 </div>
 
