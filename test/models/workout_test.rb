@@ -17,7 +17,7 @@ class WorkoutTest < ActiveSupport::TestCase
   test 'should save valid workout' do
     workout = Workout.new
 
-    workout.name = 'Cardio'
+    workout.name = 'My First Workout'
     workout.fitness_goal = 'Endurance'
     workout.user = @user
 
@@ -25,7 +25,7 @@ class WorkoutTest < ActiveSupport::TestCase
     assert workout.valid?
   end
 
-  test 'should not save workout without workout type' do
+  test 'should not save workout without name' do
     workout = Workout.new
 
     workout.fitness_goal = 'Endurance'
@@ -38,7 +38,7 @@ class WorkoutTest < ActiveSupport::TestCase
   test 'should not save workout without user' do
     workout = Workout.new
 
-    workout.name = 'Cardio'
+    workout.name = 'My First Workout'
     workout.fitness_goal = 'Endurance'
 
     workout.save

@@ -35,22 +35,17 @@ en:
   units:
     kg: ' kg'
     fitness_goal: ' fitness goal'
-    minutes: ' minutes'
-    hours: ' hours'
   crud:
     details: Details
     edit: Edit
     delete: Delete
     delete_confirm: Are you sure?
     save: Save
-  connectors:
-    and: ' and '
   home:
     home:
       welcome: Welcome to DailyBoost
     contact:
       title: Contact Us
-      contact_us: Fill in the form below to contact us.
   workouts:
     form:
       error: " prohibited this workout from being saved:"
@@ -59,14 +54,14 @@ en:
       title: Editing Name
     index:
       title: Your Workouts
-      name: Workout Type
+      name: Workout
     show:
-      name: 'Workout Type:'
+      name: 'Workout:'
       fitness_goal: 'Fitness Goal:'
       add: Add Exercise
-    created: 'Workout was successfully created.'
-    updated: 'Workout was successfully updated.'
-    deleted: 'Workout was successfully deleted.'
+    created: 'Workout successfully created.'
+    updated: 'Workout successfully updated.'
+    deleted: 'Workout successfully deleted.'
 
   logged_workouts:
     form:
@@ -84,9 +79,9 @@ en:
       title: Achievements
     calendar:
       title: Calendar
-    created: 'Workout was successfully created.'
-    updated: 'Workout was successfully updated.'
-    deleted: 'Workout was successfully deleted.'
+    created: 'Workout successfully created.'
+    updated: 'Workout successfully updated.'
+    deleted: 'Workout successfully deleted.'
 
   exercises: 
     form:
@@ -105,8 +100,8 @@ en:
       sets: 'Sets:'
       reps: 'Reps:'
       back: Back
-    created: 'Exercise was successfully added.'
-    deleted: 'Exercise was successfully deleted.'
+    created: 'Exercise successfully added.'
+    deleted: 'Exercise successfully deleted.'
   shared: 
     header:
       nav_workouts: Workout

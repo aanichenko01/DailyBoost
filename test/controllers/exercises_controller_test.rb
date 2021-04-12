@@ -44,7 +44,7 @@ class ExercisesControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to exercise_url(@exercise)
   end
 
-  test "should destroy exercise using ajax" do
+  test "should destroy exercise" do
     assert_difference('Exercise.count', -1) do
       delete exercise_url(@exercise), xhr: true
     end
