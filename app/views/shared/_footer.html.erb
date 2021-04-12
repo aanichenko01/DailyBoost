@@ -1,0 +1,17 @@
+<footer>
+  <% get_quote %>
+    
+  <p class=quote>
+    <%= @quote["content"] %>
+  </p>
+
+  <p>
+    <%= "- " + @quote["author"] %>
+  </p>
+
+  <p>
+    <%= link_to t('.content'), contact_path %>
+  </p>
+
+</footer>
+    
