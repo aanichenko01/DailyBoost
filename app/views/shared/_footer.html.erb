@@ -2,10 +2,7 @@
   <% get_quote %>
     
   <p class=quote>
-    <%= @quote["content"] %>
-  </p>
-
-  <p>
+    <%= %Q["#{@quote["content"]}"]   %>
     <%= "- " + @quote["author"] %>
   </p>
 
