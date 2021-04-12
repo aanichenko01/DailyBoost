@@ -1,0 +1,14 @@
+<footer>
+  <% get_quote %>
+    
+  <p class=quote>
+    <%= %Q["#{@quote["content"]}"]   %>
+    <%= "- " + @quote["author"] %>
+  </p>
+
+  <p>
+    <%= link_to t('.content'), contact_path %>
+  </p>
+
+</footer>
+    
