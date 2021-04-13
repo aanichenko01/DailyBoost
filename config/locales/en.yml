@@ -31,9 +31,8 @@
 
 en:
   app_title: DailyBoost
-  app_description: A fitness website
+  app_description: A website to help streamline the workout process
   units:
-    kg: ' kg'
     fitness_goal: ' fitness goal'
   crud:
     details: Details
