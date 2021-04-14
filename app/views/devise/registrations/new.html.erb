@@ -9,6 +9,11 @@
   </div>
 
   <div class="field">
+    <%= f.label :username %> <br />
+    <%= f.text_field :username, autofocus: true, autocomplete: "username" %>
+  </div>
+
+  <div class="field">
     <%= f.label :difficulty %> <i>(Workouts per week)</i><br />
     <%= f.number_field :difficulty, autofocus: true, autocomplete: "difficulty", within: 1...7 %>
   </div>

@@ -7,4 +7,7 @@ class User < ApplicationRecord
   # Each user has many workouts
   has_many :workouts,   dependent: :destroy
   has_many :logged_workouts,   dependent: :destroy
+
+  validates_presence_of :username
+
 end

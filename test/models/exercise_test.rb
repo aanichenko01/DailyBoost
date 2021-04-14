@@ -22,51 +22,51 @@ class ExerciseTest < ActiveSupport::TestCase
     exercise.category = 'Abs'
     exercise.description = 'Do a plank'
     exercise.equipment = 'None'
-    exercise.sets = '3'
-    exercise.reps = '10'
+    exercise.sets = '5'
+    exercise.reps = '15'
 
     exercise.save
     assert exercise.valid?
   end
 
-  test 'should not save exercise without title' do
+  test 'should not save exercise without a title' do
     exercise = Exercise.new
 
     exercise.workout = @workout
-    exercise.sets = '3'
-    exercise.reps = '10'
     exercise.category = 'Abs'
     exercise.description = 'Do a plank'
     exercise.equipment = 'None'
+    exercise.sets = '5'
+    exercise.reps = '15'
 
     exercise.save
     refute exercise.valid?
   end
 
-  test 'should not save exercise without workout' do
+  test 'should not save exercise without a workout' do
     exercise = Exercise.new
 
     exercise.title = 'My Exercise'
-    exercise.sets = '3'
-    exercise.reps = '10'
     exercise.category = 'Abs'
     exercise.description = 'Do a plank'
     exercise.equipment = 'None'
+    exercise.sets = '5'
+    exercise.reps = '15'
 
     exercise.save
     refute exercise.valid?
   end
 
-  test 'should destroy exercise with workout' do 
+  test 'should destroy exercise if workout is destroyed' do 
     exercise = Exercise.new
 
     exercise.title = 'My Exercise'
     exercise.workout = @workout
-    exercise.sets = '3'
-    exercise.reps = '10'
     exercise.category = 'Abs'
     exercise.description = 'Do a plank'
     exercise.equipment = 'None'
+    exercise.sets = '5'
+    exercise.reps = '15'
 
     exercise.save
     @workout.destroy

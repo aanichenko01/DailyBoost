@@ -21,10 +21,7 @@
 
 /* Default font for entire website */
 $font: Arial, Helvetica, sans-serif;
-$blue: #3a69c0;
 $font_color: #292929;
-
-
 
 body {
   font-family: $font;
@@ -38,28 +35,15 @@ h1 {
 /* Styles all table headers the same on the website */
 th{
   text-transform: uppercase;
-  color: white;
+  color: white  !important;;
   background-color: $font_color;
 }
 
 /* Styles all links the same on the website */
 a:link,
 a:visited{
-  color: $blue;
   background-color: transparent;
   text-decoration: none;
-}
-
-/* Styles all hovering over links the same on the website */
-a:hover {
-  color: $font_color;
-  background-color: transparent;
-  text-decoration: none;
-}
-
-/* All divs styled the same way */
-.box{
-  color: white;
 }
 
 
