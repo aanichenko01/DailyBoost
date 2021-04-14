@@ -3,9 +3,47 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 /* Styling of exercises divs */
-.exercise_display{
-    margin-top: 5px;
-    margin-bottom: 5px;
-    background:gray;
-    padding: 20px;
-  }
+
+
+#name{
+  font-weight: bold;
+  font-size: 18px;
+}
+
+#category{
+  font-size: 18px;
+}
+
+#description{
+  font-size: 15px;
+}
+
+
+.search{
+  display: inline-block !important;;
+}
+
+
+.btn{
+  background-color: white !important;;
+  color: black !important;;
+  padding: 25px;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.btn:hover {
+  background-color: rgb(241, 241, 241) !important;;
+}
+
+.btn:active {
+  background-color: white;
+}
+
+.btn:visited {
+  background-color: white;
+}
+
+h3 {
+  text-indent: 13px;
+}
