@@ -1,6 +1,6 @@
 class QuoteHelperTest < ActionView::TestCase
   
-    test "should return a HTTParty::Response" do
+    test "API call should return a HTTParty::Response" do
         assert get_quote.class.eql? HTTParty::Response
     end
     
