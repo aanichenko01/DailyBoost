@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  resources :channels do
+    resource :channel_user
+    resources :messages
+  end
   resources :logged_workouts
   # Resouce paths
   resources :exercises

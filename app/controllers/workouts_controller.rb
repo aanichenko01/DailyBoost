@@ -1,6 +1,5 @@
 class WorkoutsController < ApplicationController
   include HTTParty
-  include ExerciseHelper
   before_action :set_workout, only: [:show, :edit, :update, :destroy]
   # Page can only be accessed if user is logged in
   before_action :authenticate_user!
@@ -98,5 +97,9 @@ class WorkoutsController < ApplicationController
     # Only allow a list of trusted parameters through.
     def workout_params
       params.require(:workout).permit(:name, :fitness_goal)
+    end
+
+    def get_exercise_by_category(category)
+      return HTTParty.get('https://wger.de/api/v2/exercise/?language=2&limit=500&category=' + category.to_s).parsed_response
     end
 end

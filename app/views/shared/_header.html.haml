@@ -21,6 +21,7 @@
                         - if user_signed_in? #Displays user email and logout option if user is logged in
                             %li= link_to "#{current_user.email}", edit_user_registration_path
                             %li= link_to t('.logout'), destroy_user_session_path, method: 'delete'
+                            %li= link_to t('.channel'), channels_path
                         - else  #Else displays login and sign up option
                             %li= link_to t('.login'), new_user_session_path
                             %li= link_to t('.sign_up'), new_user_registration_path
