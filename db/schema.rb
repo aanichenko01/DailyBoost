@@ -10,7 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_14_110702) do
+ActiveRecord::Schema.define(version: 2021_04_14_145105) do
+
+  create_table "channel_users", force: :cascade do |t|
+    t.integer "channel_id"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["channel_id"], name: "index_channel_users_on_channel_id"
+    t.index ["user_id"], name: "index_channel_users_on_user_id"
+  end
+
+  create_table "channels", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "exercises", force: :cascade do |t|
     t.integer "workout_id", null: false
@@ -35,6 +50,16 @@ ActiveRecord::Schema.define(version: 2021_04_14_110702) do
     t.index ["user_id"], name: "index_logged_workouts_on_user_id"
   end
 
+  create_table "messages", force: :cascade do |t|
+    t.integer "channel_id"
+    t.integer "user_id"
+    t.text "body"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["channel_id"], name: "index_messages_on_channel_id"
+    t.index ["user_id"], name: "index_messages_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -44,7 +69,7 @@ ActiveRecord::Schema.define(version: 2021_04_14_110702) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "difficulty", default: 1, null: false
-    t.string "username"
+    t.string "username", default: "", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
