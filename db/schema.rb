@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_14_145105) do
+ActiveRecord::Schema.define(version: 2021_04_20_095532) do
 
   create_table "channel_users", force: :cascade do |t|
     t.integer "channel_id"
@@ -69,7 +69,7 @@ ActiveRecord::Schema.define(version: 2021_04_14_145105) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "difficulty", default: 1, null: false
-    t.string "username"
+    t.string "username", default: "", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
