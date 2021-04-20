@@ -21,7 +21,7 @@
     = render 'shared/header'
 
     .container-fluid.text-center
-      -#Displays flash messages at top of body
+      -#Displays flash messages 
       - flash.each do |key, value|
         = content_tag :div, content_tag(:p, value), id: "#{key}" unless value.blank?
       .row.content
