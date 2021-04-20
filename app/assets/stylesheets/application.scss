@@ -14,14 +14,18 @@
 *= require_self
 *= require simple_calendar
 */
+
+@import "font-awesome-sprockets";
+@import "font-awesome";
 @import "bootstrap";
 @import "bootstrap-sprockets";
-
 @import "simple_calendar";
 
 /* Default font for entire website */
 $font: Arial, Helvetica, sans-serif;
 $font_color: #292929;
+
+
 
 body {
   font-family: $font;
@@ -46,8 +50,10 @@ a:visited{
   text-decoration: none;
 }
 
-
-/* Remove the navbar's default margin-bottom and rounded borders */ 
+#inline{
+  display:inline-block;
+}
+/* Remove the navbar's default margin-bottom and rounded borders */
 .navbar {
   margin-bottom: 0;
   border-radius: 0;
@@ -57,5 +63,3 @@ a:visited{
 footer {
   padding: 30px;
 }
-
-
