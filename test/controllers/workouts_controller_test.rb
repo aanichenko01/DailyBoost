@@ -17,9 +17,8 @@ class WorkoutsControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
 
     assert_select 'h2', 'Your Workouts'
-    assert_select 'li', 'Workout'
     assert_template layout: 'application'
-    assert_template partial: '_header'
+    assert_template partial: '_sidebar'
     assert_template partial: '_footer'
   end
 
@@ -29,7 +28,7 @@ class WorkoutsControllerTest < ActionDispatch::IntegrationTest
 
     assert_select 'h2', 'New Workout'
     assert_template layout: 'application'
-    assert_template partial: '_header'
+    assert_template partial: '_sidebar'
     assert_template partial: '_footer'
   end
 
@@ -46,7 +45,7 @@ class WorkoutsControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
 
     assert_template layout: 'application'
-    assert_template partial: '_header'
+    assert_template partial: '_sidebar'
     assert_template partial: '_footer'
   end
 
@@ -56,7 +55,7 @@ class WorkoutsControllerTest < ActionDispatch::IntegrationTest
 
     assert_select 'h2', 'Editing Name'
     assert_template layout: 'application'
-    assert_template partial: '_header'
+    assert_template partial: '_sidebar'
     assert_template partial: '_footer'
   end
 
