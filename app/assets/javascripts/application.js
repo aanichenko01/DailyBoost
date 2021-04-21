@@ -19,38 +19,13 @@
 //= require_tree .
 
 //Validates contact form
-function ValidateContactForm(){
-    $("#contact_form").validate({
-        //Validation rules
-        rules: {
-          name: 'required',
-          email: 'required',
-          message: 'required'
-        },
-        //Validation error messages
-        messages: {
-          name: 'Please enter your firstname',
-          email: 'Please enter a valid email address',
-          message: 'Please enter a message'
-        },
-        submitHandler: function(form) {
-          form.submit();
-        }
-      });
-}
 
-//Resizes Text on Tables on Hover
-function ResizeTable(){
-  $(".hoverable").hover(function(){
-    $(this).css("fontSize", "18px");
-    }, function(){
-    $(this).css("fontSize", "14px");
-  });
-}
+// Javascript for the sideNar
 
-//Overcomes issues with turbolinks not parsing js files
-$(document).on('turbolinks:load', function(){
-      ValidateContactForm();
-      Resize();
-      ResizeTable();
+$(document).ready(function () {
+
+    $('#sidebarCollapse').on('click', function () {
+        $('#sidebar').toggleClass('active');
+    });
+
 });

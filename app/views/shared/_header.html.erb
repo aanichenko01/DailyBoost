@@ -1,0 +1,54 @@
+<header>
+  <div id="Styled"></div>
+  <nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button class="navbar-toggle" data-target="#myNavbar" data-toggle="collapse" type="button">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="/home">
+          <%= t('app_title') %>
+        </a>
+      </div>
+      <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav navbar">
+          <% #Displays links to all the different pages %>
+          <li>
+            <%= link_to t('.nav_workouts'),class:"cheers", workouts_path %>
+          </li>
+          <li>
+            <%= link_to t('.tracker'), logged_workouts_path %>
+          </li>
+          <li>
+            <%= link_to t('.calendar'), calendar_path %>
+          </li>
+          <li>
+            <%= link_to t('.achievements'), achievements_path %>
+          </li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <% if user_signed_in? #Displays user email and logout option if user is logged in %>
+              <li>
+                <%= link_to "#{current_user.email}", edit_user_registration_path %>
+              </li>
+              <li>
+                <%= link_to t('.logout'), destroy_user_session_path, method: 'delete' %>
+              </li>
+            <% else  #Else displays login and sign up option %>
+              <li>
+                <%= link_to t('.login'), new_user_session_path %>
+              </li>
+              <li>
+                <%= link_to t('.sign_up'), new_user_registration_path %>
+              </li>
+            <% end %>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <br/>
+</header>
