@@ -18,6 +18,17 @@
 //= require turbolinks
 //= require_tree .
 
+//Validates contact form
+
+// Javascript for the sideNar
+
+$(document).ready(function () {
+
+    $('#sidebarCollapse').on('click', function () {
+        $('#sidebar').toggleClass('active');
+    });
+
+});
 $(document).on('turbolinks:load', function(){
       
 });
