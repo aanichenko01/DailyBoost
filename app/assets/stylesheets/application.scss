@@ -14,9 +14,11 @@
 *= require_self
 *= require simple_calendar
 */
+
+@import "font-awesome-sprockets";
+@import "font-awesome";
 @import "bootstrap";
 @import "bootstrap-sprockets";
-
 @import "simple_calendar";
 
 // /* Default font for entire website */
@@ -48,8 +50,7 @@
 
 // This is a test for sideBar
 
-@import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
-
+@import url("https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700");
 
 body {
     font-family: 'Poppins', sans-serif;
@@ -106,6 +107,9 @@ ul ul a {
 }
 
 
+#inline{
+  display:inline-block;
+}
 /* Remove the navbar's default margin-bottom and rounded borders */
 .navbar {
   margin-bottom: 0;
