@@ -17,7 +17,6 @@ class HomeControllerTest < ActionDispatch::IntegrationTest
     assert_template layout: 'application'
     assert_select 'title', 'DailyBoost'
     assert_select 'h1', 'Contact Us'
-    assert_select 'p', 'Fill in the form below to contact us.'
   end
 
 end

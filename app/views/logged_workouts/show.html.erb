@@ -1,0 +1,23 @@
+
+
+<div class="jumbotron">
+	
+	</br>
+	<p>
+	  	<strong>Date:</strong>
+	  	<%= @logged_workout.start_time %>
+	  
+	</p>
+
+	<p>
+		<strong>Workout name:</strong>
+		<%= @logged_workout.name %>
+	</p>
+
+
+
+
+	<%= link_to 'Edit', edit_logged_workout_path(@logged_workout), class: 'btn btn-info btn-md' %>   
+	<%= link_to 'Back', logged_workouts_path, class: 'btn btn-secondary btn-md' %>
+	<%= button_to 'Delete Workout', @logged_workout, method: :delete, data: { confirm: t('crud.delete_confirm'), class: 'btn btn-danger btn-md' } %>
+</div>

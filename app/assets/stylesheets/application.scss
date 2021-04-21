@@ -12,15 +12,20 @@
 *
 *= require_tree .
 *= require_self
+*= require simple_calendar
 */
 
-@import "bootstrap-sprockets";
+@import "font-awesome-sprockets";
+@import "font-awesome";
 @import "bootstrap";
+@import "bootstrap-sprockets";
+@import "simple_calendar";
 
 /* Default font for entire website */
 $font: Arial, Helvetica, sans-serif;
-$blue: #3a69c0;
 $font_color: #292929;
+
+
 
 body {
   font-family: $font;
@@ -34,32 +39,21 @@ h1 {
 /* Styles all table headers the same on the website */
 th{
   text-transform: uppercase;
-  color: white;
+  color: white  !important;;
   background-color: $font_color;
 }
 
 /* Styles all links the same on the website */
 a:link,
 a:visited{
-  color: $blue;
   background-color: transparent;
   text-decoration: none;
 }
 
-/* Styles all hovering over links the same on the website */
-a:hover {
-  color: $font_color;
-  background-color: transparent;
-  text-decoration: none;
+#inline{
+  display:inline-block;
 }
-
-/* All divs styled the same way */
-.box{
-  color: white;
-}
-
-
-/* Remove the navbar's default margin-bottom and rounded borders */ 
+/* Remove the navbar's default margin-bottom and rounded borders */
 .navbar {
   margin-bottom: 0;
   border-radius: 0;

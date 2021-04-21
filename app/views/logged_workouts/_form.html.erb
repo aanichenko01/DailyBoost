@@ -1,0 +1,40 @@
+<br/>
+<br/>
+
+<%= form_for @logged_workout, :html => {:id => "LoggedWorkoutForm"} do |f| %>
+  <% if @logged_workout.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(logged_workout.errors.count, "error") %> prohibited this workout from being saved:</h2>
+
+      <ul>
+      <% @logged_workout.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field form-group">
+    <%= f.label :start_time %>
+    <%# when released, disabled will be true, to make sure a workout can only be logged on the day it was done%>
+    <%= f.datetime_select :start_time, disabled: false%> 
+  </div>
+
+  <div class="field form-group">
+    <%= f.label :name %>
+    
+    <%= f.select :name, current_user.workouts.all.collect { |w| [w.name]}, include_blank: false %>
+    
+    
+  </div>
+
+
+
+    
+
+  <div class="actions">
+    <%= f.submit class: 'btn btn-danger btn-lg'%>
+  </div>
+  
+<% end %>
+

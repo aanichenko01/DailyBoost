@@ -31,26 +31,20 @@
 
 en:
   app_title: DailyBoost
-  app_description: A fitness website
+  app_description: A website to help streamline the workout process
   units:
-    kg: ' kg'
     fitness_goal: ' fitness goal'
-    minutes: ' minutes'
-    hours: ' hours'
   crud:
     details: Details
     edit: Edit
     delete: Delete
     delete_confirm: Are you sure?
     save: Save
-  connectors:
-    and: ' and '
   home:
     home:
       welcome: Welcome to DailyBoost
     contact:
       title: Contact Us
-      contact_us: Fill in the form below to contact us.
   workouts:
     form:
       error: " prohibited this workout from being saved:"
@@ -59,14 +53,35 @@ en:
       title: Editing Name
     index:
       title: Your Workouts
+      name: Workout
+    show:
+      name: 'Workout:'
+      fitness_goal: 'Fitness Goal:'
+      add: Add Exercise
+    created: 'Workout successfully created.'
+    updated: 'Workout successfully updated.'
+    deleted: 'Workout successfully deleted.'
+
+  logged_workouts:
+    form:
+      error: " prohibited this workout from being saved:"
+    new: Log today's workout
+    edit:
+      title: Editing Name
+    index:
+      title: Your Logged Workouts
       name: Workout Type
     show:
       name: 'Workout Type:'
-      fitness_goal: 'Fitness Goal:'
-      add: Add Exercise
-    created: 'Workout was successfully created.'
-    updated: 'Workout was successfully updated.'
-    deleted: 'Workout was successfully deleted.'
+      date: 'Date:'
+    achievements:
+      title: Achievements
+    calendar:
+      title: Calendar
+    created: 'Workout successfully created.'
+    updated: 'Workout successfully updated.'
+    deleted: 'Workout successfully deleted.'
+
   exercises: 
     form:
       error: " prohibited this exercise from being saved:"
@@ -84,8 +99,8 @@ en:
       sets: 'Sets:'
       reps: 'Reps:'
       back: Back
-    created: 'Exercise was successfully added.'
-    deleted: 'Exercise was successfully deleted.'
+    created: 'Exercise successfully added.'
+    deleted: 'Exercise successfully deleted.'
   shared: 
     header:
       nav_workouts: Workout

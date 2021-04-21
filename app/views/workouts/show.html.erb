@@ -12,7 +12,8 @@
 </p>
 <%= link_to 'Edit Name', edit_workout_path(@workout) %>
 <br>
-<%= link_to 'Delete Workout', @workout, method: :delete, data: { confirm: t('crud.delete_confirm') } %>
+<br>
+<%= button_to 'Delete Workout', @workout, method: :delete, data: { confirm: t('crud.delete_confirm') } %>
 <hr/>
 <% #Renders exercises table only if there are exercises to display %>
 <%= render :partial => "exercises/table" unless @workout.exercises.empty? %>

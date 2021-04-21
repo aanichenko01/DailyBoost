@@ -1,0 +1,40 @@
+<h2>
+  <%= t('.title') %>
+</h2>
+<% #Link to add a new workout %>
+<%= link_to t('workouts.new'), new_workout_path %>
+<br/>
+<br/>
+<% #Workout table only displayed if there are workouts to display %>
+<% if current_user.workouts.first.present? %>
+  <table class="table table-bordered table-hover">
+    <thread>
+      <tr>
+        <th class="heading">
+          <%= link_to t('.name'), :sort => "name" %>
+        </th>
+        <th class="heading">
+          <%= link_to t('units.fitness_goal'), :sort => "fitness_goal" %>
+        </th>
+        <th></th>
+      </tr>
+      <tbody>
+        <% #Workouts displayed in reverse so most recent entry on top %>
+        <% @workouts.reverse_each do |workout| %>
+          <tr class="hoverable">
+            <td>
+              <%= workout.name %>
+            </td>
+            <td>
+              <%= workout.fitness_goal %>
+            </td>
+            <td>
+              <%= link_to t('crud.details'), workout %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </thread>
+  </table>
+<% end %>
+
