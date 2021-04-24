@@ -26,7 +26,7 @@ class ExercisesControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
     
     assert_template layout: 'application'
-    assert_template partial: '_header'
+    assert_template partial: '_sidebar'
     assert_template partial: '_footer'
   end
 
@@ -35,7 +35,7 @@ class ExercisesControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
 
     assert_template layout: 'application'
-    assert_template partial: '_header'
+    assert_template partial: '_sidebar'
     assert_template partial: '_footer'
   end
 

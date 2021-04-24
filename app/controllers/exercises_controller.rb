@@ -72,7 +72,7 @@ class ExercisesController < ApplicationController
   def destroy
     @exercise.destroy
     respond_to do |format|
-      format.js #-> loads destroy.js.erb
+      format.html { redirect_to workouts_url, notice: 'Exercise was successfully deleted.' }
       format.json { head :no_content }
     end
   end
