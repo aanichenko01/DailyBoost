@@ -21,52 +21,50 @@
 @import "bootstrap-sprockets";
 @import "simple_calendar";
 
-// /* Default font for entire website */
-// $font: Arial, Helvetica, sans-serif;
-// $font_color: #292929;
-//
-// body {
-//   font-family: $font;
-//   background-color: white;
-// }
-//
-// h1 {
-//   text-transform: uppercase;
-// }
-//
-// /* Styles all table headers the same on the website */
-// th{
-//   text-transform: uppercase;
-//   color: white  !important;;
-//   background-color: $font_color;
-// }
-//
-// /* Styles all links the same on the website */
-// a:link,
-// a:visited{
-//   background-color: transparent;
-//   text-decoration: none;
-// }
+/* Default font for entire website */
+$font: Arial, Helvetica, sans-serif;
+$font_color: #292929;
 
-// This is a test for sideBar
+body {
+  font-family: $font;
+  font-size: 1.3em;
+  background-color: #fafafa;
+}
+
+h1, h2, h3 {
+  text-transform: uppercase;
+  font-size: 1.3em;
+}
+
+/* Styles all table headers the same on the website */
+th{
+  text-transform: uppercase;
+  color: white  !important;
+  background-color: #42a4aa;
+  font-size: 1.3em;
+}
+
+td{
+  font-size: 1.3em;
+}
+
+
+/* This is a test for sideBar */
 
 @import url("https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700");
 
-body {
-    font-family: 'Poppins', sans-serif;
-    background: #fafafa;
-}
+
 
 p {
     font-family: 'Poppins', sans-serif;
     font-size: 1.1em;
     font-weight: 300;
     line-height: 1.7em;
-    color: #999;
+    
 }
 
 a, a:hover, a:focus {
-    color: inherit;
+    color: #42a4aa;
     text-decoration: none;
     transition: all 0.3s;
 }
@@ -79,32 +77,23 @@ a, a:hover, a:focus {
 #sidebar ul.components {
     padding: 20px 0;
     border-bottom: 1px solid #47748b;
+    font-size: 1.5em;
 }
 
-#sidebar ul p {
-    color: #fff;
-    padding: 10px;
-}
 
-#sidebar ul li a {
+
+#sidebar ul li a{
     padding: 10px;
     font-size: 1.1em;
     display: block;
+    color: #fff;
 }
 #sidebar ul li a:hover {
-    color: #7386D5;
-    background: #fff;
+    color: #000;
+    background: #6479d0;
 }
 
-#sidebar ul li.active > a, a[aria-expanded="true"] {
-    color: #fff;
-    background: #6d7fcc;
-}
-ul ul a {
-    font-size: 0.9em !important;
-    padding-left: 30px !important;
-    background: #6d7fcc;
-}
+
 
 
 #inline{
@@ -116,14 +105,12 @@ ul ul a {
   border-radius: 0;
 }
 
-/* Add some padding to footer */
-footer {
-  padding: 30px;
-}
+
 
 .wrapper {
     display: flex;
-    align-items: stretch;
+    text-decoration: none;
+    transition: all 0.3s;
 }
 
 #sidebar {
@@ -136,20 +123,20 @@ footer {
     transition: all 0.3s;
 }
 
-#sidebar.active {
+#sidebar.active{
     margin-left: -250px;
 }
-a[data-toggle="collapse"] {
-    position: relative;
+
+#content{
+    width: 70%;
+    padding: 20px;
+    min-height: 100vh;
+    transition: all 0.3s;
+    margin-left: 50px;
+    margin-right: 50px;
+
 }
 
-.dropdown-toggle::after {
-    display: block;
-    position: absolute;
-    top: 50%;
-    right: 20px;
-    transform: translateY(-50%);
-}
 
 @media (max-width: 768px) {
     #sidebar {
@@ -158,12 +145,17 @@ a[data-toggle="collapse"] {
     #sidebar.active {
         margin-left: 0;
     }
+
+    #sidebarCollapse span{
+        display: none;
+    }
 }
 
 .sidebar-heading {
   font-size: 30px;
-}
+} 
 
-.cheers{
-  font-size: 40px;
+/* Add some padding to footer */
+footer {
+  padding: 30px;
 }

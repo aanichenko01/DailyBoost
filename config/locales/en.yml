@@ -48,7 +48,7 @@ en:
   workouts:
     form:
       error: " prohibited this workout from being saved:"
-    new: New Workout
+    new: Create a new Workout
     edit:
       title: Editing Name
     index:
@@ -66,7 +66,7 @@ en:
     form:
       error: " prohibited this workout from being saved:"
     new: Log today's workout
-    edit:
+    edit: 
       title: Editing Name
     index:
       title: Your Logged Workouts
@@ -92,7 +92,7 @@ en:
     edit:
       title: Editing Exercise
     new:
-      title: New Exercise
+      title: Add a new Exercise
     show:
       workout: 'Workout:'
       title: 'Title:'
@@ -101,11 +101,12 @@ en:
       back: Back
     created: 'Exercise successfully added.'
     deleted: 'Exercise successfully deleted.'
+  
   shared: 
-    header:
+    sidebar:
       nav_workouts: Workout
-      logout: Logout
-      login: Login
+      logout: LOG OUT
+      login: Log In
       sign_up: Sign Up
     footer:
       content: Contact Us
