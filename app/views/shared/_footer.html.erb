@@ -1,13 +1,22 @@
-<footer>
-  <% get_quote %>
 
-  <p class=quote>
-    <%= %Q["#{@quote["content"]}"]   %>
-    <%= "- " + @quote["author"] %>
-  </p>
+<footer id="f" class="text-center fixed-bottom text-lg-start">
+ 	
+  <div class="container p-4">
+    <% get_quote %>
 
-  <p class="">
-    <%= link_to 'Privacy Policy', "/privacy" %>
-  </p>
-
+		
+			<h5 class=quote>
+				<%= %Q["#{@quote["content"]}"]   %>
+				<%= "- " + @quote["author"] %>
+			</h5>
+  </div>
+ 
+  <div class="text-center p-3" style="background-color: #556dcc;">
+  	<a><%= link_to 'Privacy Policy', "/privacy" %> </a>
+    © 2021 
+  </div>
+ 
 </footer>
+
+
+		

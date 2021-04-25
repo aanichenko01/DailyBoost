@@ -19,6 +19,12 @@
            <li>
              <a> <%= link_to t('.achievements'), achievements_path %> </a>
            </li>
+           <li>
+             <a> <%= link_to t('.nav_channels'), channels_path %> </a>
+           </li>
+
+
+           <hr>
        
            <li>
             <% if user_signed_in? #Displays username and logout option if user is logged in %>

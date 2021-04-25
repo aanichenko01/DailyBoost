@@ -1,17 +1,20 @@
-<p>
-  <b>
-    <%= t('.name') %>
-  </b>
-  <%= @workout.name %>
-</p>
-<p>
-  <b>
-    <%= t('.fitness_goal') %>
-  </b>
-  <%= @workout.fitness_goal %>
-</p>
-<%= link_to 'Edit Name', edit_workout_path(@workout) %>
+<div class="jumbotron bg-info text-white">
+	<p>
+	 	<b>
+	    	<%= t('.name') %>
+	  	</b>
+	  	<%= @workout.name %>
+	</p>
+	<p>
+	  <b>
+	    <%= t('.fitness_goal') %>
+	  </b>
+	  <%= @workout.fitness_goal %>
+	</p>
+	
+</div>
 <br>
+<button type="button"  class="btn btn-success btn-lg"><%= link_to 'Edit workout', edit_workout_path(@workout)  %></button>
 <br>
 <%= button_to 'Delete Workout', @workout, method: :delete, data: { confirm: t('crud.delete_confirm') } %>
 <hr/>

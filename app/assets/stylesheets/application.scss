@@ -28,10 +28,21 @@ $font_color: #292929;
 body {
   font-family: $font;
   font-size: 1.3em;
-  background-color: #fafafa;
+  background-color: #e6afba;
 }
 
-h1, h2, h3 {
+footer {
+  background-color: #697ed2;
+  color: white;
+  a {
+    color: #fafafa;
+  }
+  a:hover {
+  color: hotpink;
+}
+}
+
+h1, h2 {
   text-transform: uppercase;
   font-size: 1.3em;
 }
@@ -46,6 +57,7 @@ th{
 
 td{
   font-size: 1.3em;
+
 }
 
 
@@ -69,14 +81,70 @@ a, a:hover, a:focus {
     transition: all 0.3s;
 }
 
+.simple-calendar .calendar-heading .calendar-title{
+  padding: 10px;
+  font-size: 1.5em;
+
+}
+
+.chat {
+  font-size: 1.4em;
+}
+
+#sign-in{
+  display: -ms-flexbox;
+  display: -webkit-box;
+  display: flex;
+  -ms-flex-align: center;
+  -ms-flex-pack: center;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  justify-content: center;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  font-size: 1.4em;
+
+}
+
+.form-signin {
+  width: 100%;
+  max-width: 330px;
+  padding: 15px;
+  margin: 0 auto;
+}
+.form-signin .checkbox {
+  font-weight: 400;
+}
+.form-signin .form-control {
+  position: relative;
+  box-sizing: border-box;
+  height: auto;
+  padding: 10px;
+  font-size: 16px;
+}
+.form-signin .form-control:focus {
+  z-index: 2;
+}
+.form-signin input[type="email"] {
+  margin-bottom: -1px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+.form-signin input[type="password"] {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
 #sidebar .sidebar-header {
     padding: 20px;
-    background: #6d7fcc;
+    background: #7d8fd8;
 }
 
 #sidebar ul.components {
-    padding: 20px 0;
-    border-bottom: 1px solid #47748b;
+    padding: 20px ;
+    
     font-size: 1.5em;
 }
 
@@ -90,7 +158,7 @@ a, a:hover, a:focus {
 }
 #sidebar ul li a:hover {
     color: #000;
-    background: #6479d0;
+    background: #7d8fd8;
 }
 
 
@@ -118,7 +186,7 @@ a, a:hover, a:focus {
     max-width: 250px;
     min-height: 100vh;
 
-    background: #7386D5;
+    background: #91a0de;
     color: #fff;
     transition: all 0.3s;
 }
@@ -138,6 +206,13 @@ a, a:hover, a:focus {
 }
 
 
+#f {
+ 
+  
+  transition: all 0.3s;
+}
+
+
 @media (max-width: 768px) {
     #sidebar {
         margin-left: -250px;
@@ -149,13 +224,24 @@ a, a:hover, a:focus {
     #sidebarCollapse span{
         display: none;
     }
+
+    #content{
+      width: 100%;
+      padding: 10px;
+      
+      transition: all 0.3s;
+      margin-left: 1px;
+      margin-right: 1px;
+
+    }
+
+    #f {
+ 
+     
+      transition: all 0.3s;
+    } 
 }
 
 .sidebar-heading {
   font-size: 30px;
 } 
-
-/* Add some padding to footer */
-footer {
-  padding: 30px;
-}
