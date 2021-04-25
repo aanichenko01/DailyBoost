@@ -1,13 +1,15 @@
 <h2>
   <%= t('.title') %>
 </h2>
+
+<br> 
 <% #Link to add a new workout %>
-<%= link_to t('workouts.new'), new_workout_path %>
-<br/>
-<br/>
+<button type="button"  class="btn btn-primary btn-lg"><%= link_to t('workouts.new'), new_workout_path  %></button>
+<br><br><br>
+
 <% #Workout table only displayed if there are workouts to display %>
 <% if current_user.workouts.first.present? %>
-  <table class="table table-bordered table-hover">
+  <table class="table table-striped  table-hover table-responsive-md">
     <thread>
       <tr>
         <th class="heading">

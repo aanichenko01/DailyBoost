@@ -15,16 +15,18 @@
   <% end %>
 
   <div class="field form-group">
-    <%= f.label :start_time %>
-    <%# when released, disabled will be true, to make sure a workout can only be logged on the day it was done%>
-    <%= f.datetime_select :start_time, disabled: false%> 
+    <p>
+      <%= f.label :start_time %>
+      <%# when released, disabled will be true, to make sure a workout can only be logged on the day it was done%>
+      <%= f.datetime_select :start_time, disabled: true%> 
+    </p>
   </div>
 
   <div class="field form-group">
-    <%= f.label :name %>
+    <p><%= f.label :name %> 
     
     <%= f.select :name, current_user.workouts.all.collect { |w| [w.name]}, include_blank: false %>
-    
+    </p>
     
   </div>
 
