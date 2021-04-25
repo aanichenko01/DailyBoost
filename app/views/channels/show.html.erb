@@ -1,61 +1,63 @@
-<div class="row" data-controller="channel" data-channel-id="<%= @channel.id %>">
-  <div class="col-sm-3">
-    <div class="d-flx justify-content-between">
-      <h4>
-        <strong>Channels</strong>
-      <%= link_to icon("fas","plus"), new_channel_path %>
-      </h4>
-    </div>
-
-    <% Channel.all.each do |channel| %>
-      <div>
-        <strong>
-          <%= link_to channel.name, channel %>
-        </strong>
-        <div id="inline">
-
-        <% if current_user.channels.include?(channel) %>
-          <%= button_to "Leave", channel_channel_user_path(@channel), method: :delete, class: "btn btn-link" %>
-
-        <%end%>
+<div class="chat">
+  <div class="row" data-controller="channel" data-channel-id="<%= @channel.id %>">
+    <div class="col-sm-3">
+      <div class="d-flx justify-content-between">
+        <h4>
+          <strong>Channels</strong>
+        <%= link_to icon("fas","plus"), new_channel_path %>
+        </h4>
       </div>
 
-      </div>
-    <% end %>
+      <% Channel.all.each do |channel| %>
+        <div>
+          <strong>
+            <%= link_to channel.name, channel %>
+          </strong>
+          <div id="inline">
 
-    <hr />
+          <% if current_user.channels.include?(channel) %>
+            <%= button_to "Leave", channel_channel_user_path(@channel), method: :delete, class: "btn btn-link" %>
 
-    <div class="d-flx justify-content-between">
-      <h6>User</h6>
-    </div>
+          <%end%>
+        </div>
 
-    <% @channel.users.each do |user| %>
-      <div>
-        <%= user.username %>
-      </div>
-    <% end %>
-  </div>
-
-
-  <div class="col-sm-8">
-    <strong>#<%= @channel.name %></strong>
-
-    <div data-target="channel.messages">
-      <%= render @channel.messages %>
-    </div>
-
-
-    <% if current_user.channels.include?(@channel) %>
-
-      <%= form_with model: [@channel, Message.new], data: {action: "success->channel#clearMessage"} do |form| %>
-        <%= form.text_field :body, class: "form-control", data: {target: "channel.newMessage"} %>
-
+        </div>
       <% end %>
 
-    <% else %>
+      <hr />
 
-      <%= button_to "Join #{@channel.name}", channel_channel_user_path(@channel), method: :post %>
+      <div class="d-flx justify-content-between">
+        <h6>User</h6>
+      </div>
 
-    <% end %>
+      <% @channel.users.each do |user| %>
+        <div>
+          <%= user.username %>
+        </div>
+      <% end %>
+    </div>
+
+
+    <div class="col-sm-8">
+      <strong>#<%= @channel.name %></strong>
+
+      <div data-target="channel.messages">
+        <%= render @channel.messages %>
+      </div>
+
+
+      <% if current_user.channels.include?(@channel) %>
+
+        <%= form_with model: [@channel, Message.new], data: {action: "success->channel#clearMessage"} do |form| %>
+          <%= form.text_field :body, class: "form-control", data: {target: "channel.newMessage"} %>
+
+        <% end %>
+
+      <% else %>
+
+        <%= button_to "Join #{@channel.name}", channel_channel_user_path(@channel), method: :post %>
+
+      <% end %>
+    </div>
   </div>
 </div>

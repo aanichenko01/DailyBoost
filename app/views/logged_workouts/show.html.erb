@@ -1,6 +1,6 @@
-<div class="jumbotron">
+<div class="jumbotron bg-info text-white">
 	
-	</br>
+	
 	<p>
 	  	<strong>Date:</strong>
 	  	<%= @logged_workout.start_time %>
@@ -20,4 +20,4 @@
 
 <button type="button"  class="btn btn-success btn-lg"><%= link_to 'Edit workout', edit_logged_workout_path(@logged_workout)  %></button>
 
-<button type="button"  class="btn btn-danger btn-lg"><%= link_to 'Delete', @logged_workout, method: :delete, data: { confirm: t('crud.delete_confirm') } %></button>
+<%= button_to 'Delete Workout', @logged_workout, method: :delete, data: { confirm: t('crud.delete_confirm') } %>

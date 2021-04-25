@@ -3,14 +3,14 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 @keyframes quotes {
-    0%   {color: white;}
-    50%  {color: black;}
-    100% {color: white;}
+    0%   {color: #697ed2;}
+    50%  {color: white;}
+    100% {color: #697ed2;}
 }
 
 
 .quote {
     animation-name: quotes;
-    animation-duration: 20s;
+    animation-duration: 15s;
     animation-iteration-count: infinite;
 }

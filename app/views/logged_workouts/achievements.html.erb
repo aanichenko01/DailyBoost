@@ -12,7 +12,7 @@ m_w=0 #workouts in a month
 p_m_w=0 #workouts in a month
 
 date = Time.new
-x = Date.new(date.year, date.month, date.day).cweek #current day's week number
+today_week_num = Date.new(date.year, date.month, date.day).cweek #current day's week number
 
 days_in_month = Time.days_in_month(date.month, date.year) 
 
@@ -34,7 +34,7 @@ end
 end 
 
 @logged_workouts.each do |logged_workout|  
-	if logged_workout.week_num == x && logged_workout.start_time.year == date.year
+	if logged_workout.week_num == today_week_num && logged_workout.start_time.year == date.year
 		
 		w_w = w_w+1 
  	end 
@@ -44,18 +44,18 @@ end
 	
 	#check if we are in the first week of the year and get the last
 	#week_num of the previous year
-	if x == 1 && logged_workout.week_num==53 && logged_workout.start_time.year == date.year - 1
+	if today_week_num == 1 && logged_workout.week_num==53 && logged_workout.start_time.year == date.year - 1
 		
 		p_w_w = p_w_w+1 
 
 	#if there was no week 53 in previous year, week 52 was the last week
-	elsif x == 1 && logged_workout.week_num==52 && logged_workout.start_time.year == date.year - 1
+	elsif today_week_num == 1 && logged_workout.week_num==52 && logged_workout.start_time.year == date.year - 1
 		
 		p_w_w = p_w_w+1 
 
 	#if not in first week of year, just find the workouts of the previous
 	#week in the same year
-	elsif x > 1 && logged_workout.week_num == x-1 && logged_workout.start_time.year == date.year
+	elsif today_week_num > 1 && logged_workout.week_num == today_week_num-1 && logged_workout.start_time.year == date.year
 		
 		p_w_w = p_w_w+1  
 		
@@ -132,7 +132,7 @@ end
 
 %>
 
-<div class="jumbotron">
+<div class="jumbotron bg-info text-white">
 	<h2>
 		<strong>Weekly streak: </strong>
 		
@@ -147,21 +147,21 @@ end
 	</h2>
 </div>
 
-<div class="jumbotron">
+<div class="jumbotron bg-info text-white">
 	
 	<p>
 	  	<strong>User: </strong>
 	  	<%= current_user.email %>
 	</p>
 
-	<p class="text-end">
+	<p class="tetoday_week_numt-end">
 		<strong>Difficulty level: </strong>
 		<%= current_user.difficulty %> workouts per week
 	</p>
 </div>
 
 
-<div class="jumbotron">
+<div class="jumbotron bg-info text-white">
 	<p>
 		Completed workouts: 
 		<%= current_user.logged_workouts.size %>

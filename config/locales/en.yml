@@ -104,7 +104,8 @@ en:
   
   shared: 
     sidebar:
-      nav_workouts: Workout
+      nav_workouts: Workouts
+      nav_channels: Chat forum
       logout: LOG OUT
       login: Log In
       sign_up: Sign Up
