@@ -27,5 +27,4 @@ Rails.application.routes.draw do
 
  get 'privacy', to: 'privacy#index'
 
-
 end
