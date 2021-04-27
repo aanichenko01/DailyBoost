@@ -14,11 +14,14 @@
 	
 </div>
 <br>
-<button type="button"  class="btn btn-success btn-lg"><%= link_to 'Edit workout', edit_workout_path(@workout)  %></button>
-<br>
+
+<button type="button" id="btn" class="btn btn-success btn-lg"><%= link_to 'Edit workout', edit_workout_path(@workout)  %></button>
+
 <%= button_to 'Delete Workout', @workout, method: :delete, data: { confirm: t('crud.delete_confirm') } %>
 <hr/>
 <% #Renders exercises table only if there are exercises to display %>
+
+<button type="button" id="btn" class="btn btn-info btn-lg"><%= link_to 'Add Exercise', workout_search_path(workout_id: @workout.id)  %></button>
 <%= render :partial => "exercises/table" unless @workout.exercises.empty? %>
 
- <%= link_to "Add Exercise", workout_search_path(workout_id: @workout.id) %>
+
