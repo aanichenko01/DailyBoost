@@ -63,19 +63,11 @@ end
 end 
 
 
-#check if previous week didn't have the desired amount of
-#workouts with the chosen difficult
-if p_w_w < current_user.difficulty 
-	if w_w >= current_user.difficulty 
-		weekly_streak = 1
-	else
-		weekly_streak = 0
-	end 
-end
+
 
 #check if previous week had the desired amount of workouts
 #with the chosen difficulty
-if p_w_w >= current_user.difficulty && weekly_streak > 0
+if p_w_w >= current_user.difficulty && weekly_streak >= 0
 
 #if true, check whether this week has the desired amount of
 #workouts to increase the streak
@@ -84,6 +76,18 @@ if p_w_w >= current_user.difficulty && weekly_streak > 0
 	
 	end 
 end 
+
+#check if previous week didn't have the desired amount of
+#workouts with the chosen difficult
+if p_w_w < current_user.difficulty 
+
+	if w_w >= current_user.difficulty 
+		weekly_streak = 1
+	else
+		weekly_streak = 0
+		
+	end 
+end
 
 # calculate monthly streak: 
 @logged_workouts.each do |logged_workout| 
@@ -133,7 +137,7 @@ end
 %>
 
 <div class="jumbotron bg-info text-white">
-	<h2>
+	<h2> 
 		<strong>Weekly streak: </strong>
 		
 		<%= weekly_streak %>
@@ -151,7 +155,7 @@ end
 	
 	<p>
 	  	<strong>User: </strong>
-	  	<%= current_user.email %>
+	  	<%= current_user.username %> (<%= current_user.email%>)
 	</p>
 
 	<p class="tetoday_week_numt-end">
