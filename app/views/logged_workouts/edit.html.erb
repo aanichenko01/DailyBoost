@@ -1,0 +1,36 @@
+<h2>
+  <%= t('.title') %>
+</h2>
+<br/>
+<%= form_for @logged_workout do |f| %>
+  <% if @logged_workout.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= "#{pluralize(@logged_workout.errors.count, "error")}" + t('.error') %>
+      </h2>
+      <ul>
+        <% @logged_workout.errors.full_messages.each do |message| %>
+          <li>
+            <%= message %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <% #Form to enter new workout %>
+  <form action="/action_page.php">
+    <div class="col-xs-3">
+      <div class="field form-group">
+    <p><%= f.label :name %> 
+    
+    <%= f.select :name, current_user.workouts.all.collect { |w| [w.name]}, include_blank: false %>
+    </p>
+    
+  </div>
+
+      <div class="form-group">
+        <%= f.submit t('crud.save'), class: 'btn btn-danger btn-large' %>
+      </div>
+    </div>
+  </form>
+<% end %>
