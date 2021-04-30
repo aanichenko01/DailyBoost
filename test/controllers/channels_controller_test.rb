@@ -3,6 +3,7 @@ require 'test_helper'
 class ChannelsControllerTest < ActionDispatch::IntegrationTest
   setup do
     @channel = channels(:one)
+    sign_in users(:three)
   end
 
   test "should get index" do
@@ -11,7 +12,7 @@ class ChannelsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should get new" do
-    get new_channel_url
+    get "/channels/new"
     assert_response :success
   end
 
@@ -24,7 +25,7 @@ class ChannelsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should show channel" do
-    get channel_url(@channel)
+    get channels_url(@channel)
     assert_response :success
   end
 
@@ -40,9 +41,8 @@ class ChannelsControllerTest < ActionDispatch::IntegrationTest
 
   test "should destroy channel" do
     assert_difference('Channel.count', -1) do
-      delete channel_url(@channel)
+      delete channel_url(@channel), xhr: false
     end
-
     assert_redirected_to channels_url
   end
 end

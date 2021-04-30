@@ -9,6 +9,7 @@ class ChannelsController < ApplicationController
 
   # GET /channels/1 or /channels/1.json
   def show
+      @channels = Channel.all
   end
 
   # GET /channels/new

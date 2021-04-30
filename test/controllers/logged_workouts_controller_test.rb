@@ -3,6 +3,7 @@ require 'test_helper'
 class LoggedWorkoutsControllerTest < ActionDispatch::IntegrationTest
   setup do
     @logged_workout = logged_workouts(:one)
+      sign_in users(:three)
   end
 
   test "should get index" do
@@ -24,7 +25,7 @@ class LoggedWorkoutsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should show logged_workout" do
-    get logged_workout_url(@logged_workout)
+    get logged_workouts_url(@logged_workout)
     assert_response :success
   end
 
