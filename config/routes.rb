@@ -26,6 +26,5 @@ Rails.application.routes.draw do
   get 'achievements', to: 'logged_workouts#achievements'
 
  get 'privacy', to: 'privacy#index'
-
-
+ 
 end

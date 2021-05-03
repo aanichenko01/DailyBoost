@@ -3,9 +3,9 @@
 one:
   name: MyString
   start_time: 2021-04-07 18:37:31
-  user: one
+  user_id: 1
 
 two:
   name: MyString
   start_time: 2021-04-07 18:37:31
-  user: two
+  user_id: 2
