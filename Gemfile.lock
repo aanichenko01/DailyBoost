@@ -305,6 +305,7 @@ DEPENDENCIES
   rails (~> 5.2.4, >= 5.2.4.4)
   rails-controller-testing
   rails-ujs (~> 5.1.0.beta1)
+  redis (~> 4.0)
   sass-rails (~> 5.0)
   selenium-webdriver
   sidekiq (~> 6.0, >= 6.0.3)
