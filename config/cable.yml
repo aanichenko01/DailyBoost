@@ -1,10 +1,10 @@
+production:
+  adapter: redis
+  url: redis://redistogo:b450a99e8c452c94041f2dd2935d8b10@barb.redistogo.com:10091/
+  channel_prefix: fitness_app_production
+
 development:
   adapter: async
 
 test:
   adapter: async
-
-production:
-  adapter: redis
-  url: <%= ENV.fetch("REDIS_URL") { "redis://localhost:6379/1" } %>
-  channel_prefix: fitness_app_production

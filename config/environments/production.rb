@@ -1,6 +1,7 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
-
+  config.web_socket_server_url = "wss://dailyboost.herokuapp.com/cable"
+  config.action_cable.allowed_request_origins = ['https://dailyboost.herokuapp.com', 'http://dailyboost.herokuapp.com']
   # Code is not reloaded between requests.
   config.cache_classes = true
 
