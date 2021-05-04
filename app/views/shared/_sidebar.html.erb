@@ -1,12 +1,13 @@
 <nav id="sidebar">
        <div class="sidebar-header">
-           <h3 class="sidebar-heading text-center">DailyBoost</h3>
+         <div class="container-logo">
+             <%= image_tag "dailyboost_logo.jpg", :class => "image_logo" %>
+            <h3 class="sidebar-heading text-center">DailyBoost</h3>
+         </div>
        </div>
 
        <ul class="list-unstyled components">
-           
-          
-         
+
            <li>
               <a> <%= link_to t('.nav_workouts'), workouts_path %> </a>
            </li>
@@ -25,14 +26,14 @@
 
 
            <hr>
-       
+
            <li>
             <% if user_signed_in? #Displays username and logout option if user is logged in %>
               <li>
                 <a> <%= link_to "#{current_user.username} (#{current_user.email})", edit_user_registration_path %> </a>
               </li>
               <li>
-                
+
                 <a> <%= link_to t('.logout'), destroy_user_session_path, method: :delete, class:"nav-link" %> </a>
               </li>
             <% else  #Else displays login and sign up option %>
