@@ -13,27 +13,59 @@ end
   test "workout's errors" do
     get workouts_url
     assert_response :success
+    #no change in the workouts count when posting nothing on the workout name field
     assert_no_difference 'workouts.count' do
       post workouts_path, params: { workout: { name: " "} }
     end
+    #error should be present in the html body if workout name field is blank
     assert_match "errors", response.body
-    #assert_select 'div.alert'
-    #assert_select 'h4.alert-heading'
   end
-  test "show fitness goal" do
+
+  test "show and General Fitness exercise was created" do
     get "/workouts/new"
     assert_response :success
-    assert_no_difference 'workouts.count' do
-      post workouts_path, params: { workout: { fitness_goal: "General Fitness"} }
-      post workouts_path, params: { workout: { fitness_goal: "Endurance"} }
-      post workouts_path, params: { workout: { fitness_goal: "Muscle Mass"} }
-      post workouts_path, params: { workout: { fitness_goal: "Muscle Strength"} }
-    end
-    assert_select "General Fitness", response.body
-    assert_select "Endurance", response.body
-    assert_select "Muscle Mass", response.body
-    assert_select "Muscle Strength", response.body
-    #assert_select 'div.alert'
-    #assert_select 'h4.alert-heading'
+    #posts the values in the params and follows the path
+      post workouts_url, params: { workout: { name: "12314", fitness_goal: "General Fitness"} }
+      assert_response :redirect
+      follow_redirect!
+      assert_response :success
+      #looks for "Workout successfully created." in the p tag
+    assert_select "p", "Workout successfully created."
+  end
+
+  test "show and Endurence exercise was created" do
+    get "/workouts/new"
+    assert_response :success
+    #posts the values in the params and follows the path
+      post workouts_url, params: { workout: { name: "12314", fitness_goal: "Endurence"} }
+      assert_response :redirect
+      follow_redirect!
+      assert_response :success
+      #looks for "Workout successfully created." in the p tag
+    assert_select "p", "Workout successfully created."
+  end
+
+  test "show Muscle Mass exercise was created" do
+    get "/workouts/new"
+    assert_response :success
+    #posts the values in the params and follows the path
+      post workouts_url, params: { workout: { name: "12314", fitness_goal: "Muscle Mass"} }
+      assert_response :redirect
+      follow_redirect!
+      assert_response :success
+    #looks for "Workout successfully created." in the p tag
+    assert_select "p", "Workout successfully created."
+  end
+
+  test "show and Muscle Strength exercise was created" do
+    get "/workouts/new"
+    assert_response :success
+    #posts the values in the params and follows the path
+      post workouts_url, params: { workout: { name: "12314", fitness_goal: "Muscle Strength"} }
+      assert_response :redirect
+      follow_redirect!
+      assert_response :success
+      #looks for "Workout successfully created." in the p tag
+    assert_select "p", "Workout successfully created."
   end
 end
