@@ -137,6 +137,7 @@ a, a:hover, a:focus {
     display: flex;
     text-decoration: none;
     transition: all 0.3s;
+    margin-bottom: 100px;
 }
 
 #sidebar {
@@ -147,6 +148,7 @@ a, a:hover, a:focus {
     background: #91a0de;
     color: #fff;
     transition: all 0.3s;
+    margin-bottom: -100px;
 }
 
 #sidebar.active{
