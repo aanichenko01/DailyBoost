@@ -26,7 +26,7 @@ class WorkoutsControllerTest < ActionDispatch::IntegrationTest
     get new_workout_url
     assert_response :success
 
-    assert_select 'h2', 'New Workout'
+    assert_select 'h2', 'Create a new Workout'
     assert_template layout: 'application'
     assert_template partial: '_sidebar'
     assert_template partial: '_footer'
@@ -70,11 +70,5 @@ class WorkoutsControllerTest < ActionDispatch::IntegrationTest
     end
 
     assert_redirected_to workouts_url
-  end
-
-  test "should redirect to login if user not logged in" do
-    delete destroy_user_session_url
-    get workouts_url
-    assert_redirected_to new_user_session_url
   end
 end

@@ -4,6 +4,7 @@ class LiveChatTest < ActionDispatch::IntegrationTest
   setup do
     sign_in users(:three)
     @channel = channels(:one)
+    @message = messages(:one)
   end
 
   test "can see channels in the channel sections" do
@@ -19,41 +20,35 @@ class LiveChatTest < ActionDispatch::IntegrationTest
   test "channels's errors" do
     get "/channels/new"
     assert_response :success
+    #no change in the channel count when posting nothing on the channel name field
     assert_no_difference 'Channel.count' do
       post channels_path, params: { channel: { name: " "} }
     end
+    #error should be present in the html body if channel name field is blank
     assert_match "error", response.body
-    #assert_select 'div.alert'
-    #assert_select 'h4.alert-heading'
   end
 
   test "can create a channels called arms" do
   get "/channels/new"
   assert_response :success
+  #posts the values in the params and follows the path
   post channels_url, params: { channel: { name: "arms" } }
   assert_response :redirect
   follow_redirect!
   assert_response :success
+  #looks for "arms" in the strong tag
   assert_select "strong", "arms"
 end
 
 test "can create a channels called legs" do
 get "/channels/new"
 assert_response :success
+#posts the values in the params and follows the path
 post channels_url, params: { channel: { name: "legs" } }
 assert_response :redirect
 follow_redirect!
 assert_response :success
+#looks for "arms" in the strong tag
 assert_select "strong", "legs"
-end
-
-test "create message" do
-  get channels_url
-  assert_response :success
-  post channels_path, params: { message: { body: "hello", users: @current_user} }
-  assert_response :redirect
-  follow_redirect!
-  assert_response :success
-  assert_select "message.body", "hello"
 end
 end
