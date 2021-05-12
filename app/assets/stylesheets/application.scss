@@ -72,7 +72,7 @@ p {
     font-size: 1.1em;
     font-weight: 300;
     line-height: 1.7em;
-    
+
 }
 
 a, a:hover, a:focus {
@@ -102,7 +102,7 @@ a, a:hover, a:focus {
 
 #sidebar ul.components {
     padding: 20px ;
-    
+
     font-size: 1.5em;
 }
 
@@ -137,6 +137,7 @@ a, a:hover, a:focus {
     display: flex;
     text-decoration: none;
     transition: all 0.3s;
+    margin-bottom: 100px;
 }
 
 #sidebar {
@@ -147,6 +148,7 @@ a, a:hover, a:focus {
     background: #91a0de;
     color: #fff;
     transition: all 0.3s;
+    margin-bottom: -100px;
 }
 
 #sidebar.active{
@@ -165,8 +167,8 @@ a, a:hover, a:focus {
 
 
 #f {
- 
-  
+
+
   transition: all 0.3s;
 }
 
@@ -186,7 +188,7 @@ a, a:hover, a:focus {
     #content{
       width: 100%;
       padding: 10px;
-      
+
       transition: all 0.3s;
       margin-left: 1px;
       margin-right: 1px;
@@ -194,12 +196,21 @@ a, a:hover, a:focus {
     }
 
     #f {
- 
-     
+
+
       transition: all 0.3s;
-    } 
+    }
 }
 
 .sidebar-heading {
   font-size: 30px;
-} 
+}
+
+.image_logo {
+  height: 100px;
+  width: 208px;
+}
+
+.container-logo {
+  display: flex;
+}

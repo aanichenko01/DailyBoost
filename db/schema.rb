@@ -12,9 +12,12 @@
 
 ActiveRecord::Schema.define(version: 2021_04_14_145105) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "channel_users", force: :cascade do |t|
-    t.integer "channel_id"
-    t.integer "user_id"
+    t.bigint "channel_id"
+    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["channel_id"], name: "index_channel_users_on_channel_id"
@@ -28,7 +31,7 @@ ActiveRecord::Schema.define(version: 2021_04_14_145105) do
   end
 
   create_table "exercises", force: :cascade do |t|
-    t.integer "workout_id", null: false
+    t.bigint "workout_id", null: false
     t.string "title", null: false
     t.string "category", null: false
     t.string "description", null: false
@@ -43,7 +46,7 @@ ActiveRecord::Schema.define(version: 2021_04_14_145105) do
   create_table "logged_workouts", force: :cascade do |t|
     t.string "name"
     t.datetime "start_time"
-    t.integer "user_id"
+    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "week_num"
@@ -51,8 +54,8 @@ ActiveRecord::Schema.define(version: 2021_04_14_145105) do
   end
 
   create_table "messages", force: :cascade do |t|
-    t.integer "channel_id"
-    t.integer "user_id"
+    t.bigint "channel_id"
+    t.bigint "user_id"
     t.text "body"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -79,8 +82,15 @@ ActiveRecord::Schema.define(version: 2021_04_14_145105) do
     t.string "fitness_goal"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "user_id", null: false
+    t.bigint "user_id", null: false
     t.index ["user_id"], name: "index_workouts_on_user_id"
   end
 
+  add_foreign_key "channel_users", "channels"
+  add_foreign_key "channel_users", "users"
+  add_foreign_key "exercises", "workouts"
+  add_foreign_key "logged_workouts", "users"
+  add_foreign_key "messages", "channels"
+  add_foreign_key "messages", "users"
+  add_foreign_key "workouts", "users"
 end
